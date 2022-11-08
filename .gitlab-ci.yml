@@ -4,7 +4,8 @@ image: alpine
 # Save $SSH_PRIVATE_KEY first in GitLab CI variables.
 variables:
   DRUPAL_WEB_ROOT: "/var/www/drpl.sebastix.dev/"
-  SSH_LOGIN: "ssh -T -v root@sebastix.dev"
+  URL: "https://drpl.sebastix.dev"
+  SSH_LOGIN: "ssh -T root@sebastix.dev"
 
 stages:
   - deploy
@@ -24,19 +25,18 @@ deploy_staging:
   only:
     - master
   script:
-    - $SSH_LOGIN 'ls -la'
+    - $SSH_LOGIN 'cd $DRUPAL_WEB_ROOT && ls -la'
     #- $SSH_LOGIN "cd $DRUPAL_WEB_ROOT && git fetch --tags"
     #- $SSH_LOGIN "cd $DRUPAL_WEB_ROOT && git pull"
-    # Never blindly run composer update on the server: https://blog.martinhujer.cz/17-tips-for-using-composer-efficiently/
     #- $SSH_LOGIN "cd $DRUPAL_WEB_ROOT && composer install --optimize-autoloader --no-dev"
-    # Updates must be run before configuration is imported
-    # https://drupal.stackexchange.com/questions/188840/what-order-should-configuration-import-and-module-updates-be-run
-    #- $SSH_LOGIN "cd $DRUPAL_WEB_ROOT && $DRUSH updatedb -y"
-    #- $SSH_LOGIN "cd $DRUPAL_WEB_ROOT && $DRUSH config-import -y"
-    # (Additional) sanitizing tasks.
-    #- $SSH_LOGIN "cd $DRUPAL_WEB_ROOT && $DRUSH locale:check"
-    #- $SSH_LOGIN "cd $DRUPAL_WEB_ROOT; $DRUSH locale:update"
+    # New site install
+    - $SSH_LOGIN 'drush si -y'
+
+    # Existing site: updates must be run before configuration is imported
+    #- $SSH_LOGIN "cd $DRUPAL_WEB_ROOT && drush updatedb -y"
+    #- $SSH_LOGIN "cd $DRUPAL_WEB_ROOT && drush config-import -y"
+    #- $SSH_LOGIN "cd $DRUPAL_WEB_ROOT && drush locale:check"
+    #- $SSH_LOGIN "cd $DRUPAL_WEB_ROOT && drush locale:update"
     #- $SSH_LOGIN "cd $DRUPAL_WEB_ROOT && drush core-cron"
-    # You should consider fine-grained cache invalidation
-    # @see https://www.dx-experts.nl/blog/2017/drupal-8-development-caching
     #- $SSH_LOGIN "cd $DRUPAL_WEB_ROOT && drush cache-rebuild -y"
+    - echo 'Deployment ready, check $URL'
