@@ -1,0 +1,49 @@
+# Access via "http://localhost"
+# (or "http://$(docker-machine ip):8080" if using docker-machine)
+
+version: '3.9'
+
+services:
+
+  drpl_drupal:
+    image: sebastix/drupal:93-php8-apache
+    hostname: drpl_drupal
+    container_name: drpl_drupal
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ../:/var/www:cached
+      - ../config:/var/www/config:consistent
+      - ./php/custom.ini:/usr/local/etc/php/conf.d/custom.ini
+      - ./drupal/settings.local.php:/var/www/web/sites/default/settings.local.php
+    environment:
+      APACHE_DOCUMENT_ROOT: /var/www/web
+    working_dir: /var/www
+#    secrets:
+#      - host_ssh_key
+
+  drpl_db:
+    image: mariadb:10.6
+    hostname: drpl_db
+    container_name: drpl_db
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: drpl_drupal
+    ports:
+      - 32768:3306
+
+  mailhog:
+    image: mailhog/mailhog
+    hostname: mailhog
+    command: [ "-smtp-bind-addr", "0.0.0.0:25" ]
+    user: root
+    expose:
+      - 25
+      - 8025
+    ports:
+      - 8025:8025
+
+#secrets:
+#  host_ssh_key:
+#    file: ~/.ssh/id_srv01webrtb
