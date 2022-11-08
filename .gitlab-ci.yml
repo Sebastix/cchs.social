@@ -20,12 +20,13 @@ before_script:
   - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
 
 deploy_master:
+  image: alpine
   when: always
   stage: deploy
   only:
     - master
   script:
-    - $SSH_login 'apk --help'
+    - $SSH_login 'ls -la'
     #- $SSH_LOGIN "cd $DRUPAL_WEB_ROOT && git fetch --tags"
     #- $SSH_LOGIN "cd $DRUPAL_WEB_ROOT && git pull"
     # Never blindly run composer update on the server: https://blog.martinhujer.cz/17-tips-for-using-composer-efficiently/
