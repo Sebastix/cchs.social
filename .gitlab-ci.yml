@@ -3,9 +3,11 @@ image: alpine
 # Preparation:
 # Save $SSH_PRIVATE_KEY first in GitLab CI variables.
 variables:
-  DRUPAL_WEB_ROOT: "/var/www/drpl.sebastix.dev"
+  DRUPAL_WEBROOT: "/var/www/drpl.sebastix.dev"
   URL: "https://drpl.sebastix.dev"
   SSH_LOGIN: "ssh -T root@sebastix.dev"
+  SSH_USER: "root"
+  SSH_HOST: "sebastix.dev"
 
 stages:
   - deploy
@@ -30,20 +32,17 @@ deploy_staging:
   only:
     - master
   script:
-    - ls -la
-    - echo "$DRUPAL_WEB_ROOT"
-    - $SSH_LOGIN "cd $DRUPAL_WEB_ROOT && ls -la"
-    - $SSH_LOGIN "cd $DRUPAL_WEB_ROOT && git fetch --tags"
-    #- $SSH_LOGIN "cd $DRUPAL_WEB_ROOT && git pull"
-    #- $SSH_LOGIN "cd $DRUPAL_WEB_ROOT && composer install --optimize-autoloader --no-dev"
+    - scp composer.json $SSH_USER@$SSH_HOST:$DRUPAL_WEBROOT
+    - scp composer.lock $SSH_USER@$SSH_HOST:$DRUPAL_WEBROOT
+    - $SSH_LOGIN "cd $DRUPAL_WEBROOT && composer install --optimize-autoloader --no-dev"
+    - $SSH_LOGIN "cd $DRUPAL_WEBROOT && ls -la"
     # New site install
     - $SSH_LOGIN "drush si -y"
-
     # Existing site: updates must be run before configuration is imported
-    #- $SSH_LOGIN "cd $DRUPAL_WEB_ROOT && drush updatedb -y"
-    #- $SSH_LOGIN "cd $DRUPAL_WEB_ROOT && drush config-import -y"
-    #- $SSH_LOGIN "cd $DRUPAL_WEB_ROOT && drush locale:check"
-    #- $SSH_LOGIN "cd $DRUPAL_WEB_ROOT && drush locale:update"
-    #- $SSH_LOGIN "cd $DRUPAL_WEB_ROOT && drush core-cron"
-    #- $SSH_LOGIN "cd $DRUPAL_WEB_ROOT && drush cache-rebuild -y"
+    #- $SSH_LOGIN "cd $DRUPAL_WEBROOT && drush updatedb -y"
+    #- $SSH_LOGIN "cd $DRUPAL_WEBROOT && drush config-import -y"
+    #- $SSH_LOGIN "cd $DRUPAL_WEBROOT && drush locale:check"
+    #- $SSH_LOGIN "cd $DRUPAL_WEBROOT && drush locale:update"
+    #- $SSH_LOGIN "cd $DRUPAL_WEBROOT && drush core-cron"
+    #- $SSH_LOGIN "cd $DRUPAL_WEBROOT && drush cache-rebuild -y"
     - echo "Deployment ready, check $URL"
