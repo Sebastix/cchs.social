@@ -1,0 +1,40 @@
+# Preparation:
+# Save $SSH_PRIVATE_KEY first in GitLab CI variables.
+
+variables:
+  GIT_ROOT: "/var/www/drpl.sebastix.nl/"
+  SSH_LOGIN: "ssh -T root@sebastix.dev"
+
+image: alpine
+
+before_script:
+  # @see https://docs.gitlab.com/ee/ci/ssh_keys/
+  - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+  - eval $(ssh-agent -s)
+  - echo "$SSH_PRIVATE_KEY" | ssh-add -
+  - mkdir -p ~/.ssh
+  - chmod 700 ~/.ssh
+  - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+
+deploy_master:
+  when: always
+  stage: deploy
+  only:
+    - master
+  script:
+    - $SSH_login 'ls -la'
+    #- $SSH_LOGIN "cd $GIT_ROOT && git fetch --tags"
+    #- $SSH_LOGIN "cd $GIT_ROOT && git pull"
+    # Never blindly run composer update on the server: https://blog.martinhujer.cz/17-tips-for-using-composer-efficiently/
+    #- $SSH_LOGIN "cd $GIT_ROOT && composer install"
+    # Updates must be run before configuration is imported
+    # https://drupal.stackexchange.com/questions/188840/what-order-should-configuration-import-and-module-updates-be-run
+    #- $SSH_LOGIN "cd $GIT_ROOT && $DRUSH updatedb -y"
+    #- $SSH_LOGIN "cd $GIT_ROOT && $DRUSH config-import -y"
+    # (Additional) sanitizing tasks.
+    #- $SSH_LOGIN "cd $GIT_ROOT && $DRUSH locale:check"
+    #- $SSH_LOGIN "cd $GIT_ROOT; $DRUSH locale:update"
+    #- $SSH_LOGIN "cd $GIT_ROOT && drush core-cron"
+    # You should consider fine-grained cache invalidation
+    # @see https://www.dx-experts.nl/blog/2017/drupal-8-development-caching
+    #- $SSH_LOGIN "cd $GIT_ROOT && drush cache-rebuild -y"
