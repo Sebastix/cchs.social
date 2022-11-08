@@ -3,7 +3,7 @@ image: alpine
 # Preparation:
 # Save $SSH_PRIVATE_KEY first in GitLab CI variables.
 variables:
-  DRUPAL_WEB_ROOT: "/var/www/drpl.sebastix.dev/"
+  DRUPAL_WEB_ROOT: "/var/www/drpl.sebastix.dev"
   URL: "https://drpl.sebastix.dev"
   SSH_LOGIN: "ssh -T root@sebastix.dev"
 
@@ -25,6 +25,7 @@ deploy_staging:
   only:
     - master
   script:
+    - echo '$DRUPAL_WEB_ROOT'
     - $SSH_LOGIN 'cd $DRUPAL_WEB_ROOT && ls -la'
     #- $SSH_LOGIN "cd $DRUPAL_WEB_ROOT && git fetch --tags"
     #- $SSH_LOGIN "cd $DRUPAL_WEB_ROOT && git pull"
