@@ -19,14 +19,13 @@ before_script:
   - chmod 700 ~/.ssh
   - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
 
-deploy_master:
-  image: alpine
+deploy_staging:
   when: always
   stage: deploy
   only:
     - master
   script:
-    - $SSH_login 'ls -la'
+    - $SSH_LOGIN 'ls -la'
     #- $SSH_LOGIN "cd $DRUPAL_WEB_ROOT && git fetch --tags"
     #- $SSH_LOGIN "cd $DRUPAL_WEB_ROOT && git pull"
     # Never blindly run composer update on the server: https://blog.martinhujer.cz/17-tips-for-using-composer-efficiently/
