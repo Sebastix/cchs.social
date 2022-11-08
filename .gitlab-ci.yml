@@ -10,7 +10,6 @@ stages:
   - deploy
 
 before_script:
-  # @see https://docs.gitlab.com/ee/ci/ssh_keys/
   - 'which ssh-agent || ( apk add --update openssh )'
   - apk add --update bash
   - eval $(ssh-agent -s)
