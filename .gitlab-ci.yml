@@ -30,10 +30,10 @@ deploy_staging:
   only:
     - master
   script:
-    - echo "ls -la"
+    - ls -la
     - echo "$DRUPAL_WEB_ROOT"
     - $SSH_LOGIN "cd $DRUPAL_WEB_ROOT && ls -la"
-    #- $SSH_LOGIN "cd $DRUPAL_WEB_ROOT && git fetch --tags"
+    - $SSH_LOGIN "cd $DRUPAL_WEB_ROOT && git fetch --tags"
     #- $SSH_LOGIN "cd $DRUPAL_WEB_ROOT && git pull"
     #- $SSH_LOGIN "cd $DRUPAL_WEB_ROOT && composer install --optimize-autoloader --no-dev"
     # New site install
