@@ -1,11 +1,13 @@
+image: alpine
+
 # Preparation:
 # Save $SSH_PRIVATE_KEY first in GitLab CI variables.
-
 variables:
-  GIT_ROOT: "/var/www/drpl.sebastix.nl/"
+  DRUPAL_WEB_ROOT: "/var/www/drpl.sebastix.dev/"
   SSH_LOGIN: "ssh -T root@sebastix.dev"
 
-image: alpine
+stages:
+  - deploy
 
 before_script:
   # @see https://docs.gitlab.com/ee/ci/ssh_keys/
@@ -23,19 +25,19 @@ deploy_master:
   only:
     - master
   script:
-    - $SSH_login 'ls -la'
-    #- $SSH_LOGIN "cd $GIT_ROOT && git fetch --tags"
-    #- $SSH_LOGIN "cd $GIT_ROOT && git pull"
+    - $SSH_login 'apk --help'
+    #- $SSH_LOGIN "cd $DRUPAL_WEB_ROOT && git fetch --tags"
+    #- $SSH_LOGIN "cd $DRUPAL_WEB_ROOT && git pull"
     # Never blindly run composer update on the server: https://blog.martinhujer.cz/17-tips-for-using-composer-efficiently/
-    #- $SSH_LOGIN "cd $GIT_ROOT && composer install"
+    #- $SSH_LOGIN "cd $DRUPAL_WEB_ROOT && composer install --optimize-autoloader --no-dev"
     # Updates must be run before configuration is imported
     # https://drupal.stackexchange.com/questions/188840/what-order-should-configuration-import-and-module-updates-be-run
-    #- $SSH_LOGIN "cd $GIT_ROOT && $DRUSH updatedb -y"
-    #- $SSH_LOGIN "cd $GIT_ROOT && $DRUSH config-import -y"
+    #- $SSH_LOGIN "cd $DRUPAL_WEB_ROOT && $DRUSH updatedb -y"
+    #- $SSH_LOGIN "cd $DRUPAL_WEB_ROOT && $DRUSH config-import -y"
     # (Additional) sanitizing tasks.
-    #- $SSH_LOGIN "cd $GIT_ROOT && $DRUSH locale:check"
-    #- $SSH_LOGIN "cd $GIT_ROOT; $DRUSH locale:update"
-    #- $SSH_LOGIN "cd $GIT_ROOT && drush core-cron"
+    #- $SSH_LOGIN "cd $DRUPAL_WEB_ROOT && $DRUSH locale:check"
+    #- $SSH_LOGIN "cd $DRUPAL_WEB_ROOT; $DRUSH locale:update"
+    #- $SSH_LOGIN "cd $DRUPAL_WEB_ROOT && drush core-cron"
     # You should consider fine-grained cache invalidation
     # @see https://www.dx-experts.nl/blog/2017/drupal-8-development-caching
-    #- $SSH_LOGIN "cd $GIT_ROOT && drush cache-rebuild -y"
+    #- $SSH_LOGIN "cd $DRUPAL_WEB_ROOT && drush cache-rebuild -y"
