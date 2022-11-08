@@ -25,13 +25,14 @@ deploy_staging:
   only:
     - master
   script:
-    - echo '$DRUPAL_WEB_ROOT'
-    - $SSH_LOGIN 'cd $DRUPAL_WEB_ROOT && ls -la'
+    - echo "ls -la"
+    - echo "$DRUPAL_WEB_ROOT"
+    - $SSH_LOGIN "cd $DRUPAL_WEB_ROOT && ls -la"
     #- $SSH_LOGIN "cd $DRUPAL_WEB_ROOT && git fetch --tags"
     #- $SSH_LOGIN "cd $DRUPAL_WEB_ROOT && git pull"
     #- $SSH_LOGIN "cd $DRUPAL_WEB_ROOT && composer install --optimize-autoloader --no-dev"
     # New site install
-    - $SSH_LOGIN 'drush si -y'
+    - $SSH_LOGIN "drush si -y"
 
     # Existing site: updates must be run before configuration is imported
     #- $SSH_LOGIN "cd $DRUPAL_WEB_ROOT && drush updatedb -y"
