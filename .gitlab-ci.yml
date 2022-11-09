@@ -41,8 +41,8 @@ deploy_staging:
     # Existing site: updates must be run before configuration is imported
     #- $SSH_LOGIN "cd $DRUPAL_WEBROOT && drush updatedb -y"
     #- $SSH_LOGIN "cd $DRUPAL_WEBROOT && drush config-import -y"
-    - $SSH_LOGIN "cd $DRUPAL_WEBROOT && drush locale:check"
-    - $SSH_LOGIN "cd $DRUPAL_WEBROOT && drush locale:update"
+    #- $SSH_LOGIN "cd $DRUPAL_WEBROOT && drush locale:check"
+    #- $SSH_LOGIN "cd $DRUPAL_WEBROOT && drush locale:update"
     - $SSH_LOGIN "cd $DRUPAL_WEBROOT && drush core-cron"
     - $SSH_LOGIN "cd $DRUPAL_WEBROOT && drush cache-rebuild -y"
     - echo "Deployment ready, check $URL"
