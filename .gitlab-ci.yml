@@ -37,6 +37,7 @@ deploy_staging:
     #- scp -r web/themes/custom $SSH_USER@$SSH_HOST:$DRUPAL_WEBROOT/web/themes/custom
     - scp composer.json $SSH_USER@$SSH_HOST:$DRUPAL_WEBROOT
     - scp composer.lock $SSH_USER@$SSH_HOST:$DRUPAL_WEBROOT
+    - $SSH_LOGIN "chown -R nginx:nginx $DRUPAL_WEBROOT"
     - $SSH_LOGIN "cd $DRUPAL_WEBROOT && composer install --optimize-autoloader --no-dev"
     - $SSH_LOGIN "cd $DRUPAL_WEBROOT && ls -la"
     # New site install
@@ -48,5 +49,4 @@ deploy_staging:
     - $SSH_LOGIN "cd $DRUPAL_WEBROOT && drush locale:update"
     - $SSH_LOGIN "cd $DRUPAL_WEBROOT && drush core-cron"
     - $SSH_LOGIN "cd $DRUPAL_WEBROOT && drush cache-rebuild -y"
-    - $SSH_LOGIN "chown -R nginx:nginx $DRUPAL_WEBROOT"
     - echo "Deployment ready, check $URL"
