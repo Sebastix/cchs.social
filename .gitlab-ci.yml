@@ -33,8 +33,8 @@ deploy_staging:
     - master
   script:
     - scp -r config $SSH_USER@$SSH_HOST:$DRUPAL_WEBROOT
-    - scp -r web/modules/custom $SSH_USER@$SSH_HOST:$DRUPAL_WEBROOT/web/modules/custom
-    - scp -r web/themes/custom $SSH_USER@$SSH_HOST:$DRUPAL_WEBROOT/web/themes/custom
+    #- scp -r web/modules/custom $SSH_USER@$SSH_HOST:$DRUPAL_WEBROOT/web/modules/custom
+    #- scp -r web/themes/custom $SSH_USER@$SSH_HOST:$DRUPAL_WEBROOT/web/themes/custom
     - scp composer.json $SSH_USER@$SSH_HOST:$DRUPAL_WEBROOT
     - scp composer.lock $SSH_USER@$SSH_HOST:$DRUPAL_WEBROOT
     - $SSH_LOGIN "cd $DRUPAL_WEBROOT && composer install --optimize-autoloader --no-dev"
