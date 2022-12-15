@@ -20,8 +20,8 @@ services:
     environment:
       APACHE_DOCUMENT_ROOT: /var/www/web
     working_dir: /var/www
-#    secrets:
-#      - host_ssh_key
+    secrets:
+      - host_ssh_key
 
   drpl_db:
     image: mariadb:10.6
@@ -44,6 +44,6 @@ services:
     ports:
       - 8025:8025
 
-#secrets:
-#  host_ssh_key:
-#    file: ~/.ssh/id_srv01webrtb
+secrets:
+  host_ssh_key:
+    file: ~/.ssh/id_ed25519_transip
