@@ -1,15 +1,15 @@
-uuid: c6d7050d-c038-47e9-8359-c697ead3816c
+uuid: 071ce5f4-990f-40ae-9d86-4a695ce756c6
 langcode: en
 status: true
 dependencies:
   theme:
-    - stark
+    - olivero
 _core:
-  default_config_hash: Oh72CHUkp6cj6dbrXMK2hzCsM05w9cHVoD22rMLQUfk
-id: stark_page_title
-theme: stark
-region: content
-weight: -30
+  default_config_hash: 6aOgWsNTXjqrDm98TXSAjP6qd2nCijD1xw45MrnbK-Y
+id: olivero_page_title
+theme: olivero
+region: content_above
+weight: -5
 provider: null
 plugin: page_title_block
 settings:

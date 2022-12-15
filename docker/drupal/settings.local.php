@@ -162,7 +162,7 @@ $settings['trusted_host_patterns'] = [
 /**
  * Create a salt: drush php-eval 'echo \Drupal\Component\Utility\Crypt::randomBytesBase64(55) . "\n";'
  */
-$settings['hash_salt'] = 'r9RSBJejp0L5uDYFETEMa6hNMKP33yBvW3ov1bTgh4luY3sbmDqlN26gqkd7ojFWuI4oOuorhw';
+$settings['hash_salt'] = '4ZUkuTr3rOR4Rv6y6ME0HTDKU6ykbPQc20DgneiQWPJR0Mm1VZf68DlXg7iQ_aw7YjviT-YfHQ';
 
 $settings['config_sync_directory'] = '../config';
 
@@ -172,7 +172,7 @@ $databases['default']['default'] = array (
   'database' => 'drpl_drupal',
   'username' => 'root',
   'password' => 'root',
-  'prefix' => '',
+  'prefix' => 'drpl_',
   'host' => 'drpl_db',
   'port' => '3306',
   'driver' => 'mysql',

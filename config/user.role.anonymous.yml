@@ -1,14 +1,20 @@
-uuid: a7012313-4938-4ce6-8178-80193b3027bf
+uuid: 7083c87a-ec0e-4cc0-bd1a-4535454b47ab
 langcode: en
 status: true
 dependencies:
+  config:
+    - filter.format.restricted_html
   module:
+    - filter
+    - media
     - system
 _core:
-  default_config_hash: j5zLMOdJBqC0bMvSdth5UebkprJB8g_2FXHqhfpJzow
+  default_config_hash: 6WavjUYXIegP9AAg2zXGx54MWIVoomC3SZhNiqe-Dyk
 id: anonymous
 label: 'Anonymous user'
 weight: 0
 is_admin: false
 permissions:
   - 'access content'
+  - 'use text format restricted_html'
+  - 'view media'
