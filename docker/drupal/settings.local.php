@@ -175,6 +175,8 @@ $databases['default']['default'] = array (
   'prefix' => 'drpl_',
   'host' => 'drpl_db',
   'port' => '3306',
+  'namespace' => 'Drupal\\mysql\\Driver\\Database\\mysql',
   'driver' => 'mysql',
+  'autoload' => 'core/modules/mysql/src/Driver/Database/mysql/',
   'collation' => 'utf8mb4_general_ci',
 );
