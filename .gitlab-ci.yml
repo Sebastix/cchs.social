@@ -21,11 +21,6 @@ before_script:
   - chmod 700 ~/.ssh
   - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
 
-cache: &global_cache
-  key: $CI_COMMIT_REF_SLUG
-  paths:
-    - vendor/
-
 deploy_staging:
   when: manual
   stage: deploy
