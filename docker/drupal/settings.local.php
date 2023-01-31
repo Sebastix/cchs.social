@@ -152,7 +152,7 @@ $settings['skip_permissions_hardening'] = TRUE;
  * to use this feature with modules that affect Drupal in a major way such as
  * the language or field module.
  */
-$settings['config_exclude_modules'] = ['devel', 'webprofiler'];
+$settings['config_exclude_modules'] = ['devel', 'webprofiler', 'tracer'];
 
 $settings['trusted_host_patterns'] = [
   '^localhost$',
