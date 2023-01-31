@@ -152,7 +152,7 @@ $settings['skip_permissions_hardening'] = TRUE;
  * to use this feature with modules that affect Drupal in a major way such as
  * the language or field module.
  */
-$settings['config_exclude_modules'] = [''];
+$settings['config_exclude_modules'] = ['devel', 'webprofiler'];
 
 $settings['trusted_host_patterns'] = [
   '^localhost$',
@@ -162,11 +162,6 @@ $settings['trusted_host_patterns'] = [
 /**
  * Create a salt: drush php-eval 'echo \Drupal\Component\Utility\Crypt::randomBytesBase64(55) . "\n";'
  */
-$settings['hash_salt'] = '4ZUkuTr3rOR4Rv6y6ME0HTDKU6ykbPQc20DgneiQWPJR0Mm1VZf68DlXg7iQ_aw7YjviT-YfHQ';
-
-$settings['config_sync_directory'] = '../config';
-
-$settings['file_private_path'] = '../private';
 
 $databases['default']['default'] = array (
   'database' => 'drpl_drupal',
@@ -180,3 +175,7 @@ $databases['default']['default'] = array (
   'autoload' => 'core/modules/mysql/src/Driver/Database/mysql/',
   'collation' => 'utf8mb4_general_ci',
 );
+
+$config['config_split.config_split.dev']['status'] = TRUE;
+$config['config_split.config_split.acceptance']['status'] = FALSE;
+$config['config_split.config_split.production']['status'] = FALSE;

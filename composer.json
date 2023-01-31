@@ -18,15 +18,22 @@
     "composer/installers": "^1.9",
     "drupal/admin_toolbar": "^3.2",
     "drupal/backup_migrate": "^5.0",
+    "drupal/config_split": "^1.9",
     "drupal/core-composer-scaffold": "^10.0",
     "drupal/core-recommended": "^10.0",
     "drupal/gin": "^3.0@alpha",
     "drupal/masquerade": "^2.0@RC",
     "drupal/pathauto": "^1.11",
+    "drupal/reroute_email": "^2.2",
+    "drupal/symfony_mailer": "^1.2@beta",
     "drush/drush": "^11.0"
   },
   "require-dev": {
-    "drupal/core-dev": "^10.0"
+    "drupal/coder": "^8.3",
+    "drupal/core-dev": "^10.0",
+    "drupal/devel": "^5.1",
+    "drupal/webprofiler": "^10.0",
+    "palantirnet/drupal-rector": "^0.15.0"
   },
   "conflict": {
     "drupal/drupal": "*"

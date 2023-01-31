@@ -1,0 +1,16 @@
+uuid: 7f3a81e4-b33e-4157-8e27-b83883bf5fec
+langcode: en
+status: false
+dependencies: {  }
+id: acceptance
+label: Acceptance
+description: ''
+weight: 0
+folder: ../config/acceptance
+module:
+  reroute_email: 0
+theme: {  }
+blacklist: {  }
+graylist: {  }
+graylist_dependents: true
+graylist_skip_equal: true

@@ -220,7 +220,7 @@ $databases = [];
  * directory in the public files path. The setting below allows you to set
  * its location.
  */
-# $settings['config_sync_directory'] = '/directory/outside/webroot';
+$settings['config_sync_directory'] = '../config/sync';
 
 /**
  * Settings:
@@ -249,7 +249,7 @@ $databases = [];
  *   $settings['hash_salt'] = file_get_contents('/home/example/salt.txt');
  * @endcode
  */
-$settings['hash_salt'] = '';
+$settings['hash_salt'] = '4ZUkuTr3rOR4Rv6y6ME0HTDKU6ykbPQc20DgneiQWPJR0Mm1VZf68DlXg7iQ_aw7YjviT-YfHQ';
 
 /**
  * Deployment identifier.
@@ -526,7 +526,7 @@ $settings['update_free_access'] = FALSE;
  * See https://www.drupal.org/documentation/modules/file for more information
  * about securing private files.
  */
-# $settings['file_private_path'] = '';
+$settings['file_private_path'] = '../private';
 
 /**
  * Temporary file path:
