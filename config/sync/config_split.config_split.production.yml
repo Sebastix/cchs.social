@@ -8,9 +8,10 @@ description: ''
 weight: 0
 folder: ../config/production
 module:
-  reroute_email: 0
+  raven: 0
 theme: {  }
-blacklist: {  }
+blacklist:
+  - system.logging
 graylist: {  }
 graylist_dependents: true
 graylist_skip_equal: true

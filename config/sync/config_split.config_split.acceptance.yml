@@ -8,9 +8,11 @@ description: ''
 weight: 0
 folder: ../config/acceptance
 module:
+  raven: 0
   reroute_email: 0
 theme: {  }
-blacklist: {  }
+blacklist:
+  - system.logging
 graylist: {  }
 graylist_dependents: true
 graylist_skip_equal: true
