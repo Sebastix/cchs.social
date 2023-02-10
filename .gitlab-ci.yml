@@ -20,6 +20,8 @@ before_script:
   - mkdir -p ~/.ssh
   - chmod 700 ~/.ssh
   - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+  - apk add rsync
+  - rsync --version
 
 deploy_staging:
   when: manual
@@ -28,7 +30,7 @@ deploy_staging:
     - master
   script:
     - ls -la
-    - scp -r config $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT
+    - rsync -a --delete -e ssh config $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT
     #- scp -r web/modules/custom $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT/web/modules/custom
     #- scp -r web/themes/custom $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT/web/themes/custom
     - scp composer.json $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT
