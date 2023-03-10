@@ -182,3 +182,11 @@ $databases['default']['default'] = array (
 $config['config_split.config_split.dev']['status'] = TRUE;
 $config['config_split.config_split.acceptance']['status'] = FALSE;
 $config['config_split.config_split.production']['status'] = FALSE;
+
+/**
+ * Nostr settings for https://www.drupal.org/project/nostr_simple_publish
+ */
+$settings['nostr_public_key_file'] = DRUPAL_ROOT . '/../nostr/pubkey';
+$settings['nostr_private_key_file'] = DRUPAL_ROOT . '/../nostr/privkey';
+//$settings['nostr_relay'] = 'wss://nostr.pleb.network';
+$settings['nostr_relay'] = 'wss://nostr.sebastix.dev';
