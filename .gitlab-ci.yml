@@ -36,7 +36,7 @@ deploy_staging:
     - scp composer.json $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT
     - scp composer.lock $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT
     - $SSH_LOGIN "chown -R nginx:nginx $DRUPAL_PROJECTROOT"
-    - $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && composer install --optimize-autoloader --no-dev"
+    - $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && composer install --optimize-autoloader --no-dev --prefer-dist"
     - $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && ls -la"
     # New site install
     #- $SSH_LOGIN "drush si -y"
