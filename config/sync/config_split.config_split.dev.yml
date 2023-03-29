@@ -8,7 +8,9 @@ description: ''
 weight: 0
 folder: ../config/dev
 module:
-  raven: 0
+  devel: 0
+  tracer: 0
+  webprofiler: 0
 theme: {  }
 blacklist:
   - system.logging

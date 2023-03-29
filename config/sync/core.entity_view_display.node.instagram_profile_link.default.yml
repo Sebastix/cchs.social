@@ -1,0 +1,30 @@
+uuid: d685b850-d097-4c31-b961-8ade84cdcce8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.instagram_profile_link.field_instagram_profile_uri
+    - node.type.instagram_profile_link
+  module:
+    - link
+    - user
+id: node.instagram_profile_link.default
+targetEntityType: node
+bundle: instagram_profile_link
+mode: default
+content:
+  field_instagram_profile_uri:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  langcode: true
+  links: true

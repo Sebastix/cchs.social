@@ -1,0 +1,17 @@
+uuid: f9b7f7f9-a382-4ccb-b4e6-d07fbf58901a
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Instagram profile link'
+type: instagram_profile_link
+description: ''
+help: ''
+new_revision: false
+preview_mode: 0
+display_submitted: false

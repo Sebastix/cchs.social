@@ -1,0 +1,23 @@
+uuid: db837ab9-222d-4a22-bbe4-148b4aaec056
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.instagram_profile_link.field_instagram_profile_uri
+    - node.type.instagram_profile_link
+  module:
+    - user
+id: node.instagram_profile_link.teaser
+targetEntityType: node
+bundle: instagram_profile_link
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_instagram_profile_uri: true
+  langcode: true
