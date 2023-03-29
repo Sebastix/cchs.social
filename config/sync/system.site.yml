@@ -1,9 +1,9 @@
 _core:
   default_config_hash: VDJxTZtQR21qB4lvOq8zszJZLvLKrSPQpdn2E3T71Ww
 langcode: en
-uuid: 624d036f-4c78-42a1-897c-eceeddb1a840
-name: 'Drush Site-Install'
-mail: admin@example.com
+uuid: df4124af-b797-4e7b-9e30-3ed0f00a0715
+name: 'HondatiX'
+mail: info@sebastix.nl
 slogan: ''
 page:
   403: ''
