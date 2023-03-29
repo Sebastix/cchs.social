@@ -164,11 +164,11 @@ $settings['trusted_host_patterns'] = [
  */
 
 $databases['default']['default'] = array (
-  'database' => 'drpl_drupal',
+  'database' => 'hix_drupal',
   'username' => 'root',
   'password' => 'root',
-  'prefix' => 'drpl_',
-  'host' => 'drpl_db',
+  'prefix' => 'hix_',
+  'host' => 'hix_db',
   'port' => '3306',
   'namespace' => 'Drupal\\mysql\\Driver\\Database\\mysql',
   'driver' => 'mysql',

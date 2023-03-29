@@ -25,7 +25,6 @@
     "drupal/gin": "^3.0@alpha",
     "drupal/masquerade": "^2.0@RC",
     "drupal/metatag": "^1.22",
-    "drupal/nostr_id_nip05": "1.0.x-dev",
     "drupal/pathauto": "^1.11",
     "drupal/raven": "^4.0",
     "drupal/symfony_mailer": "^1.2@beta",

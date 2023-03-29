@@ -5,10 +5,10 @@ version: '3.9'
 
 services:
 
-  drpl_drupal:
+  hix_drupal:
     image: sebastix/drupal:94-php81-apache
-    hostname: drpl_drupal
-    container_name: drpl_drupal
+    hostname: hix_drupal
+    container_name: hix_drupal
     ports:
       - 80:80
       - 443:443
@@ -23,13 +23,13 @@ services:
     secrets:
       - host_ssh_key
 
-  drpl_db:
+  hix_db:
     image: mariadb:10.6
-    hostname: drpl_db
-    container_name: drpl_db
+    hostname: hix_db
+    container_name: hix_db
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: drpl_drupal
+      MYSQL_DATABASE: hix_drupal
     ports:
       - 32768:3306
 

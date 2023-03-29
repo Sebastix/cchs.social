@@ -3,8 +3,8 @@ image: alpine
 # Preparation:
 # Save $SSH_PRIVATE_KEY first in GitLab CI variables.
 variables:
-  DRUPAL_PROJECTROOT: "/var/www/drpl.sebastix.dev"
-  URL: "https://drpl.sebastix.dev"
+  DRUPAL_PROJECTROOT: "/var/www/hix.sebastix.dev"
+  URL: "https://hix.sebastix.dev"
   SSH_LOGIN: "ssh -T root@sebastix.dev"
   SSH_USER: "root"
   SSH_HOST: "sebastix.dev"

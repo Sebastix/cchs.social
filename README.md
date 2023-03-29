@@ -1,6 +1,6 @@
-# drpl.sebastix.dev
+# hix.social
 
-A clean Drupal sandbox project with some default configuration.
+HondatiX - online community platform
 
 ## Docker
 
@@ -14,7 +14,7 @@ See `.gitlab-ci.yml`
 
 1. `cd docker`
 2. `docker compose up -d`
-3. `docker compose exec drpl_drupal bash`
+3. `docker compose exec hix_drupal bash`
 4. `composer install`
 5. `drush si` for a clean site install
 6. `drush cim` for importing current config files
