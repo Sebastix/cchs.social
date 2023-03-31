@@ -17,7 +17,7 @@ dependencies:
 _core:
   default_config_hash: Wur9kcEOwY1Jal81NssKnz3RhVJxAvBwyWQBGcA_1Go
 id: content_editor
-label: Redacteur
+label: 'Content editor'
 weight: 2
 is_admin: false
 permissions:
@@ -25,6 +25,7 @@ permissions:
   - 'access content overview'
   - 'access files overview'
   - 'access toolbar'
+  - 'access user profiles'
   - 'administer comments'
   - 'administer url aliases'
   - 'create page content'
@@ -39,3 +40,4 @@ permissions:
   - 'view all revisions'
   - 'view own unpublished content'
   - 'view the administration theme'
+  - 'view user email addresses'

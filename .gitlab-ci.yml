@@ -47,4 +47,6 @@ deploy_staging:
     - $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && drush locale:update"
     - $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && drush core-cron"
     - $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && drush cache-rebuild -y"
+    # Compile theme assets
+    - $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && npm run build"
     - echo "Deployment ready, check $URL"

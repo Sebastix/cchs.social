@@ -1,0 +1,23 @@
+uuid: e41b077b-3118-47f4-bc7d-c09e726b622e
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.instagram_profile_link
+  module:
+    - avatars
+    - comment
+    - node
+id: hix
+label: 'HiX member'
+weight: 4
+is_admin: null
+permissions:
+  - 'avatars avatar_generator user robohash'
+  - 'avatars avatar_generator user user_upload'
+  - 'cancel account'
+  - 'create instagram_profile_link content'
+  - 'edit own comments'
+  - 'edit own instagram_profile_link content'
+  - 'post comments'
+  - 'select account cancellation method'
