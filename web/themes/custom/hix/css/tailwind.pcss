@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  input {
+    @apply border w-full p-2
+  }
+  h1, h2, h3 {
+    @apply font-bold
+  }
+}
+
+@layer components {
+
+  header {
+    @apply mt-3
+  }
+  header,
+  footer {
+    @apply text-xs mr-1 ml-1
+  }
+  footer {
+
+  }
+
+  #block-hix-header a,
+  #block-hix-footer a{
+    @apply link link-info p-1
+  }
+  #block-hix-footer code {
+    font-size: 0.85em;
+    @apply text-center block mt-4
+  }
+
+  main {
+    @apply text-sm m-2
+  }
+  main a {
+    @apply underline underline-offset-2 decoration-blue-100 decoration-2
+  }
+  main code {
+    @apply text-xs
+  }
+  main h1 {
+    @apply text-lg
+  }
+
+  [id$="-local-tasks"] ul {
+    @apply list-disc list-inside
+  }
+
+}

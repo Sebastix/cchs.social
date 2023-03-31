@@ -69,4 +69,5 @@
 /web/modules/contrib/
 /web/themes/contrib/
 /web/README.md
-/nostr
+/web/themes/custom/*/node_modules/
+/web/themes/custom/*/dist/

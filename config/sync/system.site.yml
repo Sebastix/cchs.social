@@ -1,6 +1,6 @@
 _core:
   default_config_hash: VDJxTZtQR21qB4lvOq8zszJZLvLKrSPQpdn2E3T71Ww
-langcode: en
+langcode: nl
 uuid: df4124af-b797-4e7b-9e30-3ed0f00a0715
 name: HondatiX
 mail: info@sebastix.nl
@@ -8,8 +8,8 @@ slogan: ''
 page:
   403: ''
   404: ''
-  front: /node
+  front: /front
 admin_compact_mode: false
 weight_select_max: 100
-default_langcode: en
+default_langcode: nl
 mail_notification: ''

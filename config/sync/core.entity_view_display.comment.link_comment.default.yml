@@ -19,10 +19,11 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
-  links:
+  rate_comment_upvote:
     settings: {  }
     third_party_settings: {  }
-    weight: 100
+    weight: 1
     region: content
 hidden:
   langcode: true
+  links: true

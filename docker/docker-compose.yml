@@ -17,6 +17,7 @@ services:
       - ../config:/var/www/config:consistent
       - ./php/custom.ini:/usr/local/etc/php/conf.d/custom.ini
       - ./drupal/settings.local.php:/var/www/web/sites/default/settings.local.php
+      - ./drupal/development.services.yml:/var/www/web/sites/development.services.yml
     environment:
       APACHE_DOCUMENT_ROOT: /var/www/web
     working_dir: /var/www

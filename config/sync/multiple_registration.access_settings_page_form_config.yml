@@ -1,0 +1,6 @@
+multiple_registration_pages_allowed_list:
+  administrator: administrator
+  hix_member: hix_member
+  anonymous: 0
+  authenticated: 0
+  content_editor: 0

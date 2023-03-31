@@ -1,5 +1,4 @@
-_core:
-  default_config_hash: EMWe7Yu4Q5eD-NUfNuQAWGBvYUNZPIinztEtONSmsDc
+langcode: nl
 map:
   'no': nb
   pt: pt-pt
@@ -11,3 +10,5 @@ map:
   zh-cn: zh-hans
   zh-sg: zh-hans
   zh-chs: zh-hans
+  nl: nl
+  en: en

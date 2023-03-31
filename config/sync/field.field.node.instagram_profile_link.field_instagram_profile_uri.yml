@@ -11,7 +11,7 @@ id: node.instagram_profile_link.field_instagram_profile_uri
 field_name: field_instagram_profile_uri
 entity_type: node
 bundle: instagram_profile_link
-label: 'Instagram profile link'
+label: 'Instagram profiel link'
 description: ''
 required: true
 translatable: false

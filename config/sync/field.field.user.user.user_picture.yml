@@ -1,12 +1,21 @@
 uuid: f73e0337-919b-4fc4-a24d-1c0eaf225ba9
-langcode: en
+langcode: nl
 status: true
 dependencies:
   config:
     - field.storage.user.user_picture
   module:
     - image
+    - multiple_registration
     - user
+third_party_settings:
+  multiple_registration:
+    user_additional_register_form:
+      authenticated: 0
+      hix_member: 0
+    user_additional_register_form_required:
+      authenticated: 0
+      hix_member: 0
 _core:
   default_config_hash: twhm-ZOwSVkUjuLI_pQsaPo_pVLcqFfDmY-ojfqw0yk
 id: user.user.user_picture
@@ -24,15 +33,15 @@ settings:
   handler_settings: {  }
   file_directory: 'pictures/[date:custom:Y]-[date:custom:m]'
   file_extensions: 'png gif jpg jpeg'
-  max_filesize: ''
-  max_resolution: ''
-  min_resolution: ''
+  max_filesize: '10 MB'
+  max_resolution: 4000x4000
+  min_resolution: 64x64
   alt_field: false
   alt_field_required: false
   title_field: false
   title_field_required: false
   default_image:
-    uuid: null
+    uuid: ''
     alt: ''
     title: ''
     width: null

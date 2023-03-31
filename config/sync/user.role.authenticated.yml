@@ -1,8 +1,9 @@
 uuid: fea52550-187c-4272-ac5e-97c938e0ca4e
-langcode: en
+langcode: nl
 status: true
 dependencies:
   module:
+    - comment
     - media
     - system
 _core:
@@ -12,5 +13,6 @@ label: 'Authenticated user'
 weight: 1
 is_admin: false
 permissions:
+  - 'access comments'
   - 'access content'
   - 'view media'

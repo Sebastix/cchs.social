@@ -1,21 +1,23 @@
 uuid: 187458ce-2de4-497f-93d4-07524a02497e
-langcode: en
+langcode: nl
 status: true
 dependencies:
   config:
     - node.type.page
     - taxonomy.vocabulary.tags
   module:
+    - comment
     - file
     - node
     - path
     - system
     - taxonomy
     - toolbar
+    - votingapi
 _core:
   default_config_hash: Wur9kcEOwY1Jal81NssKnz3RhVJxAvBwyWQBGcA_1Go
 id: content_editor
-label: 'Content editor'
+label: Redacteur
 weight: 2
 is_admin: false
 permissions:
@@ -23,12 +25,14 @@ permissions:
   - 'access content overview'
   - 'access files overview'
   - 'access toolbar'
+  - 'administer comments'
   - 'administer url aliases'
   - 'create page content'
   - 'create terms in tags'
   - 'create url aliases'
   - 'delete own page content'
   - 'delete page revisions'
+  - 'delete votes'
   - 'edit own page content'
   - 'edit terms in tags'
   - 'revert all revisions'

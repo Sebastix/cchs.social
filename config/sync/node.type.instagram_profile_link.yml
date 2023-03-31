@@ -11,7 +11,7 @@ third_party_settings:
 name: 'Instagram profile link'
 type: instagram_profile_link
 description: ''
-help: ''
+help: 'Post een link naar een Instagram profiel van een Honda.'
 new_revision: false
 preview_mode: 0
 display_submitted: false

@@ -3,9 +3,12 @@ langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_display.comment.link_comment.default
+    - field.field.node.instagram_profile_link.field_comments
     - field.field.node.instagram_profile_link.field_instagram_profile_uri
     - node.type.instagram_profile_link
   module:
+    - comment
     - link
     - user
 id: node.instagram_profile_link.default
@@ -13,15 +16,29 @@ targetEntityType: node
 bundle: instagram_profile_link
 mode: default
 content:
+  field_comments:
+    type: comment_default
+    label: hidden
+    settings:
+      view_mode: default
+      pager_id: 0
+    third_party_settings: {  }
+    weight: 2
+    region: content
   field_instagram_profile_uri:
     type: link
     label: hidden
     settings:
-      trim_length: 80
-      url_only: false
+      trim_length: null
+      url_only: true
       url_plain: false
-      rel: ''
-      target: ''
+      rel: '0'
+      target: _blank
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  rate_upvote:
+    settings: {  }
     third_party_settings: {  }
     weight: 0
     region: content
