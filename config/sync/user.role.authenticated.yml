@@ -3,6 +3,7 @@ langcode: nl
 status: true
 dependencies:
   module:
+    - avatars
     - comment
     - media
     - system
@@ -15,4 +16,8 @@ is_admin: false
 permissions:
   - 'access comments'
   - 'access content'
+  - 'avatars avatar_generator user robohash'
+  - 'avatars avatar_generator user user_upload'
+  - 'edit own comments'
+  - 'post comments'
   - 'view media'
