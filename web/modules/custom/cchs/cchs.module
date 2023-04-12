@@ -1,0 +1,19 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for cchs module.
+ */
+
+use Drupal\Core\Entity\EntityTypeInterface;
+
+/**
+ * Implements hook_entity_bundle_field_info_alter().
+ */
+function cchs_entity_bundle_field_info_alter(&$fields, EntityTypeInterface $entity_type, $bundle) {
+  if ($entity_type->id() === 'node' && $bundle === 'instagram_profile_link') {
+    if (isset($fields['field_instagram_profile_uri'])) {
+      $fields['field_instagram_profile_uri']->addConstraint('InstagramProfileUriConstraint', []);
+    }
+  }
+}
