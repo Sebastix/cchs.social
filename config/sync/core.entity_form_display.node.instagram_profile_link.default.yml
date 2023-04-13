@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.instagram_profile_link.field_comments
     - field.field.node.instagram_profile_link.field_instagram_profile_uri
+    - field.field.node.instagram_profile_link.field_is_verified
     - node.type.instagram_profile_link
   module:
     - comment
@@ -87,4 +88,5 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  field_is_verified: true

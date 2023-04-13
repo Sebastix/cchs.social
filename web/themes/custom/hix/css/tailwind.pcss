@@ -6,6 +6,15 @@
   input {
     @apply border w-full p-2
   }
+  textarea {
+    @apply border
+  }
+  div.form-item {
+    @apply mb-2
+  }
+  div.form-item div.description {
+    @apply text-xs text-gray-500
+  }
   h1, h2, h3 {
     @apply font-bold
   }
@@ -14,19 +23,23 @@
 @layer components {
 
   header {
-    @apply mt-3
+    @apply my-3 mx-2
   }
   header,
   footer {
-    @apply text-xs mr-1 ml-1
+    @apply text-xs
   }
   footer {
-
+    @apply mt-3
+  }
+  header .logo img {
+    @apply w-16
   }
 
   #block-hix-header a,
-  #block-hix-footer a{
-    @apply link link-info p-1
+  #block-hix-footer a,
+  .user-links a {
+    @apply link link-info p-1 hover:decoration-orange-600/80 hover:text-primary
   }
   #block-hix-footer code {
     font-size: 0.85em;
@@ -37,7 +50,7 @@
     @apply text-sm m-2
   }
   main a {
-    @apply underline underline-offset-2 decoration-blue-100 decoration-2
+    @apply underline underline-offset-2 decoration-orange-600/30 decoration-2 transition hover:decoration-orange-600/80 hover:bg-orange-600/30
   }
   main code {
     @apply text-xs
@@ -45,9 +58,27 @@
   main h1 {
     @apply text-lg
   }
-
-  [id$="-local-tasks"] ul {
-    @apply list-disc list-inside
+  main .node h1 {
+    @apply text-2xl
   }
 
+  [id$="-local-tasks"] ul {
+    @apply menu menu-vertical md:menu-horizontal
+  }
+  [id$="-local-tasks"] ul li {
+    @apply bg-blue-100 mb-1 md:mb-0 md:mr-2
+  }
+  [id$="-local-tasks"] ul li a {
+    @apply no-underline
+  }
+  [id$="-local-tasks"] ul li a.is-active {
+
+  }
+  .node .chat-start .chat-bubble:before {
+    left: 100%;
+    transform: rotate(90deg);
+  }
+  #block-hix-content header {
+    @apply mx-0;
+  }
 }

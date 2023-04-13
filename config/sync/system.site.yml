@@ -2,9 +2,9 @@ _core:
   default_config_hash: VDJxTZtQR21qB4lvOq8zszJZLvLKrSPQpdn2E3T71Ww
 langcode: nl
 uuid: df4124af-b797-4e7b-9e30-3ed0f00a0715
-name: HondatiX
+name: CCHS
 mail: info@sebastix.nl
-slogan: ''
+slogan: 'Community Curated Honda Stuff'
 page:
   403: ''
   404: ''

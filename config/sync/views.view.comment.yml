@@ -568,7 +568,7 @@ display:
           admin_label: ''
           plugin_id: text_custom
           empty: true
-          content: 'No comments available.'
+          content: 'Geen reacties beschikbaar.'
           tokenize: false
       sorts:
         changed:
@@ -867,7 +867,7 @@ display:
       cacheable: false
   page_published:
     id: page_published
-    display_title: 'Published comments'
+    display_title: 'Gepubliceerde reacties'
     display_plugin: page
     position: 1
     display_options:

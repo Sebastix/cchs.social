@@ -2,11 +2,8 @@ uuid: 7083c87a-ec0e-4cc0-bd1a-4535454b47ab
 langcode: nl
 status: true
 dependencies:
-  config:
-    - filter.format.restricted_html
   module:
     - comment
-    - filter
     - media
     - system
 _core:
@@ -18,5 +15,5 @@ is_admin: false
 permissions:
   - 'access comments'
   - 'access content'
-  - 'use text format restricted_html'
+  - 'access user profiles'
   - 'view media'

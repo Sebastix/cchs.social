@@ -1,0 +1,8 @@
+uuid: ec382eae-0e96-4bf4-87d2-8f3293310b79
+langcode: en
+status: true
+dependencies: {  }
+name: CKEditor
+format: ckeditor
+weight: 0
+filters: {  }

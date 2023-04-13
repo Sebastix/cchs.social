@@ -9,7 +9,7 @@ dependencies:
 _core:
   default_config_hash: S_NN2ubd_NovTfgzbHVlZMmIJJQS-3h9h3inzbaFUMY
 id: comments_recent
-label: 'Recent comments'
+label: 'Laatste reacties'
 module: views
 description: 'Recent comments.'
 tag: default
@@ -22,7 +22,7 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: 'Recent comments'
+      title: 'Laatste reacties'
       fields:
         subject:
           id: subject
@@ -158,7 +158,7 @@ display:
           plugin_id: text_custom
           label: ''
           empty: true
-          content: 'No comments available.'
+          content: 'Geen reacties beschikbaar.'
           tokenize: false
       sorts:
         created:
@@ -257,7 +257,7 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      block_description: 'Recent comments'
+      block_description: 'Laatste reacties'
       block_category: 'Lists (Views)'
       allow:
         items_per_page: true

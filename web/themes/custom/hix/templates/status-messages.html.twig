@@ -21,12 +21,9 @@
  * @ingroup themeable
  */
 #}
-<div data-drupal-messages>
+<div data-drupal-messages class="alert my-3 w-full">
 {% for type, messages in message_list %}
-  <div role="contentinfo" aria-label="{{ status_headings[type] }}"{{ attributes|without('role', 'aria-label') }}>
-    {% if type == 'error' %}
-      <div role="alert">
-    {% endif %}
+  <div role="contentinfo" aria-label="{{ status_headings[type] }}"{{ attributes|without('role', 'aria-label') }} class="alert-{{ type }}">
     {% if status_headings[type] %}
       <h2 class="visually-hidden">{{ status_headings[type] }}</h2>
     {% endif %}
@@ -38,9 +35,6 @@
       </ul>
     {% else %}
       {{ messages|first }}
-    {% endif %}
-    {% if type == 'error' %}
-      </div>
     {% endif %}
   </div>
 {% endfor %}

@@ -3,10 +3,13 @@ langcode: en
 status: true
 dependencies:
   config:
+    - filter.format.ckeditor_comment
     - node.type.instagram_profile_link
   module:
     - avatars
     - comment
+    - comment_delete
+    - filter
     - node
 id: hix
 label: 'HiX member'
@@ -18,7 +21,13 @@ permissions:
   - 'avatars avatar_generator user user_upload'
   - 'cancel account'
   - 'create instagram_profile_link content'
+  - 'delete own comment'
+  - 'delete own comment anytime'
+  - 'delete own instagram_profile_link content'
+  - 'delete own node instagram_profile_link field_comments'
+  - 'delete own node instagram_profile_link field_comments anytime'
   - 'edit own comments'
-  - 'edit own instagram_profile_link content'
   - 'post comments'
   - 'select account cancellation method'
+  - 'skip comment approval'
+  - 'use text format ckeditor_comment'

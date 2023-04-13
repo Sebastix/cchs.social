@@ -8,7 +8,7 @@ third_party_settings:
   menu_ui:
     available_menus: {  }
     parent: ''
-name: 'Instagram profile link'
+name: 'Instagram profiel post'
 type: instagram_profile_link
 description: ''
 help: 'Post een link naar een Instagram profiel van een Honda.'

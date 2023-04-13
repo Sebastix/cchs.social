@@ -11,7 +11,7 @@ _core:
 id: hix_local_actions
 theme: hix
 region: content
-weight: -4
+weight: -3
 provider: null
 plugin: local_actions_block
 settings:

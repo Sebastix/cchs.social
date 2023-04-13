@@ -16,8 +16,8 @@ is_admin: false
 permissions:
   - 'access comments'
   - 'access content'
+  - 'access user profiles'
   - 'avatars avatar_generator user robohash'
   - 'avatars avatar_generator user user_upload'
-  - 'edit own comments'
   - 'post comments'
   - 'view media'

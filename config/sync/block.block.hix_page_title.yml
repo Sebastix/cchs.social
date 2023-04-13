@@ -2,6 +2,8 @@ uuid: 4c1611d3-5439-4d56-92d6-3cbb9878f72a
 langcode: en
 status: true
 dependencies:
+  module:
+    - system
   theme:
     - hix
 _core:
@@ -9,7 +11,7 @@ _core:
 id: hix_page_title
 theme: hix
 region: content
-weight: -2
+weight: -1
 provider: null
 plugin: page_title_block
 settings:
@@ -17,4 +19,8 @@ settings:
   label: 'Page title'
   label_display: '0'
   provider: core
-visibility: {  }
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    pages: '<front>'

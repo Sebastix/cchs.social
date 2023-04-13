@@ -1,8 +1,0 @@
-uuid: 57a4d730-b6f4-48d8-8410-c9083076e266
-langcode: en
-status: true
-dependencies: {  }
-id: 'null'
-label: 'Null'
-plugin: 'null'
-configuration: {  }
