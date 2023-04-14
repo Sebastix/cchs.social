@@ -24,6 +24,7 @@ See `.gitlab-ci.yml`
 * Admin Toolbar
 * Gin
 * Pathauto
+* Metatag
 * Masquerade
 * Ultimate Cron
 * Advanced CSS/JS Aggregation
@@ -37,6 +38,7 @@ See `.gitlab-ci.yml`
 * Unique content field validation
 * Config ignore
 * Robots Txt
+* Progressive Web App
 
 Development only:
 * Coder

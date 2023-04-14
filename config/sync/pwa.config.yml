@@ -1,0 +1,19 @@
+_core:
+  default_config_hash: mN2oCEdjGtL8kxM2pn61KraReH8xINSHCIEUT-_HtCA
+langcode: nl
+site_name: CCHS
+short_name: CCHS
+description: ''
+start_url: /
+scope: /
+lang: en
+theme_color: ''
+background_color: ''
+display: ''
+default_image: '0'
+urls_to_cache: ''
+urls_to_exclude: "admin/.*\r\nuser/.*"
+offline_page: /offline
+cache_version: '1'
+cross_origin: false
+skip_waiting: false
