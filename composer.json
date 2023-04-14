@@ -31,6 +31,7 @@
     "drupal/flood_control": "^2.3",
     "drupal/gin": "^3.0@alpha",
     "drupal/masquerade": "^2.0@RC",
+    "drupal/matomo": "^1.21",
     "drupal/metatag": "^1.22",
     "drupal/multiple_registration": "^3.2",
     "drupal/pathauto": "^1.11",
