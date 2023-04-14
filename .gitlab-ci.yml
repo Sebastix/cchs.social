@@ -50,6 +50,6 @@ deploy_staging:
     - $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && drush core-cron"
     - $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && drush cache-rebuild -y"
     # Compile theme assets
-    - $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && npm install"
-    - $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && npm run build"
+    - $SSH_LOGIN "cd $DRUPAL_PROJECTROOT/web/themes/custom/hix && npm install"
+    - $SSH_LOGIN "cd $DRUPAL_PROJECTROOT/web/themes/custom/hix && npm run build"
     - echo "Deployment ready, check $URL"
