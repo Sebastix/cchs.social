@@ -73,4 +73,3 @@
 /web/themes/custom/*/dist/
 /docker
 /dumps
-/config/sync/symfony_mailer.mailer_transport.smtp.yml

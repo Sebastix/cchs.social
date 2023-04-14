@@ -12,6 +12,7 @@ module:
 theme: {  }
 blacklist:
   - robotstxt.settings
+  - symfony_mailer_mailer_transport.smtp
   - symfony_mailer.settings
   - system.logging
 graylist: {  }
