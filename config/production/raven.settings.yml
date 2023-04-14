@@ -1,6 +1,6 @@
 _core:
   default_config_hash: 9rw2YgXiK9d42SeeSO8sPyCoxiG6rIlj64rJ8ocdEYU
-client_key: 'https://e338db528629497fa614b9da1512089d@logs.sebastix.dev/1'
+client_key: 'https://45d768e7e91440c894b77d5830bd2a07@logs.sebastix.dev/14'
 environment: production
 release: ''
 log_levels:
@@ -20,7 +20,7 @@ fatal_error_handler: true
 fatal_error_handler_memory: 2560
 javascript_error_handler: false
 drush_error_handler: false
-public_dsn: 'https://e338db528629497fa614b9da1512089d@logs.sebastix.dev/1'
+public_dsn: 'https://45d768e7e91440c894b77d5830bd2a07@logs.sebastix.dev/14'
 ssl: verify_ssl
 ca_cert: ''
 ignored_channels: {  }
