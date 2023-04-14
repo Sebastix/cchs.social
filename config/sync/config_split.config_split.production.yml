@@ -11,6 +11,8 @@ module:
   raven: 0
 theme: {  }
 blacklist:
+  - robotstxt.settings
+  - symfony_mailer.settings
   - system.logging
 graylist: {  }
 graylist_dependents: true

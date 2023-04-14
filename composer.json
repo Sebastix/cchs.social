@@ -34,6 +34,7 @@
     "drupal/multiple_registration": "^3.2",
     "drupal/pathauto": "^1.11",
     "drupal/raven": "^4.0",
+    "drupal/robotstxt": "^1.5",
     "drupal/symfony_mailer": "^1.2@beta",
     "drupal/symfony_mailer_reroute": "^1.2@beta",
     "drupal/twig_tweak": "^3.2",
@@ -64,6 +65,14 @@
       "phpstan/extension-installer": true,
       "php-http/discovery": true
     }
+  },
+  "scripts": {
+      "post-install-cmd": [
+          "test -e web/robots.txt && rm web/robots.txt || echo robots is setup"
+      ],
+      "post-update-cmd": [
+          "test -e web/robots.txt && rm web/robots.txt || echo robots is setup"
+      ]
   },
   "extra": {
     "drupal-scaffold": {

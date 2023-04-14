@@ -33,8 +33,8 @@ deploy_staging:
   script:
     - ls -la
     - rsync -a --delete -e ssh config $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT
-    - rsync -a --delete -e ssh web/modules/custom $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT/web/modules/custom
-    - rsync -a --delete -e ssh web/themes/custom $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT/web/themes/custom
+    - rsync -a --delete -e ssh web/modules/custom $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT/web/modules
+    - rsync -a --delete -e ssh web/themes/custom $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT/web/themes
     - rsync -a -e ssh composer.json $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT
     - rsync -a -e ssh composer.lock $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT
     - $SSH_LOGIN "chown -R nginx:nginx $DRUPAL_PROJECTROOT"
@@ -50,5 +50,6 @@ deploy_staging:
     - $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && drush core-cron"
     - $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && drush cache-rebuild -y"
     # Compile theme assets
+    - $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && npm install"
     - $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && npm run build"
     - echo "Deployment ready, check $URL"
