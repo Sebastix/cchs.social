@@ -24,10 +24,12 @@ before_script:
   - rsync --version
 
 deploy_staging:
-  when: manual
+  rules:
+    - if: $CI_COMMIT_BRANCH == "develop"
+      when: always
+    - if: $CI_COMMIT_BRANCH == "master"
+      when: manual
   stage: deploy
-  only:
-    - master
   script:
     - ls -la
     - rsync -a --delete -e ssh config $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT
