@@ -39,6 +39,7 @@ See `.gitlab-ci.yml`
 * Config ignore
 * Robots Txt
 * Progressive Web App
+* Matomo
 
 Development only:
 * Coder

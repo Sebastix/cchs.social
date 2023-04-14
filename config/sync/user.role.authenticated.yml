@@ -5,6 +5,7 @@ dependencies:
   module:
     - avatars
     - comment
+    - matomo
     - media
     - system
 _core:
@@ -19,5 +20,6 @@ permissions:
   - 'access user profiles'
   - 'avatars avatar_generator user robohash'
   - 'avatars avatar_generator user user_upload'
+  - 'opt-in or out of matomo tracking'
   - 'post comments'
   - 'view media'
