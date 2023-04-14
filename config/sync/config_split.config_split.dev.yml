@@ -13,6 +13,7 @@ module:
   webprofiler: 0
 theme: {  }
 blacklist:
+  - advagg.settings
   - robotstxt.settings
   - symfony_mailer_mailer_transport.smtp
   - symfony_mailer.settings
