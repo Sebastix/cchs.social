@@ -3,13 +3,13 @@ _core:
 langcode: nl
 site_name: CCHS
 short_name: CCHS
-description: ''
+description: 'Community Curated Honda Stuff'
 start_url: /
 scope: /
 lang: en
-theme_color: ''
-background_color: ''
-display: ''
+theme_color: '#000000'
+background_color: '#000000'
+display: fullscreen
 default_image: '0'
 urls_to_cache: ''
 urls_to_exclude: "admin/.*\r\nuser/.*"
@@ -17,3 +17,6 @@ offline_page: /offline
 cache_version: '1'
 cross_origin: false
 skip_waiting: false
+image: /sites/default/files/pwa/favicon.png
+image_small: /sites/default/files/pwa/favicon.pngcopy.png
+image_very_small: /sites/default/files/pwa/favicon.pngcopy2.png
