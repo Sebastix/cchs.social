@@ -1,36 +1,20 @@
-# hix.social
+# cchs.social
 
-HondatiX - online community platform
+CCHS - Community Curated Honda Stuff
 
-## Docker
+## Roadmap
 
-See `docker/docker-compose.yml`.
+## Issues and contributions
 
-## CI/CD
+## Support
+
+# CI/CD
 
 See `.gitlab-ci.yml`
 
-## Start development
+# Build with Drupal
 
-1. `cd docker`
-2. `docker compose up -d`
-3. `docker compose exec hix_drupal bash`
-4. `composer install`
-5. `drush si` for a clean site install
-6. `drush cim` for importing current config files
-7. `drush cr`
-8. Navigate to http://localhost in your browser
-
-## Updates
-
-1. `composer outdated`
-2. `composer update -W`
-3. `drush cr`
-4. `drush updb`
-5. `drush cex`
-6. `composer clearcache`
-
-## What modules are included?
+## Contrib modules
 
 * Config split
 * Drush
@@ -43,6 +27,13 @@ See `.gitlab-ci.yml`
 * Masquerade
 * Ultimate Cron
 * Advanced CSS/JS Aggregation
+* Flood control
+* Multiple registration
+* Comment delete
+* Comments order
+* Voting API
+* Twig Tweak
+* CKEditor markdown
 
 Development only:
 * Coder
@@ -51,20 +42,13 @@ Development only:
 * Drupal Coder
 * Drupal Rector
 
-### Config split configurations
+## Theme
 
-```php
-$config['config_split.config_split.dev']['status'] = TRUE|FALSE;
-$config['config_split.config_split.acceptance']['status'] = TRUE|FALSE;
-$config['config_split.config_split.production']['status'] = TRUE|FALSE;
-```
-`settings.local.php`
+## Custom work
 
-#### Production
+### CCHS module
 
-#### Acceptance
-
-#### Development
+### Theme hooks
 
 ## Security checks
 
@@ -73,3 +57,5 @@ $config['config_split.config_split.production']['status'] = TRUE|FALSE;
 ## Code checks
 
 @TODO - https://www.drupal.org/project/coder
+
+# License
