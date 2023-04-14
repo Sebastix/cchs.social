@@ -37,6 +37,7 @@
     "drupal/symfony_mailer": "^1.2@beta",
     "drupal/twig_tweak": "^3.2",
     "drupal/ultimate_cron": "^2.0@alpha",
+    "drupal/unique_content_field_validation": "^1.1",
     "drupal/votingapi": "^3.0@beta",
     "drush/drush": "^11.0"
   },

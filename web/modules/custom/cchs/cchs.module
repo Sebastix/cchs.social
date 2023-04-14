@@ -25,8 +25,10 @@ function cchs_form_node_instagram_profile_link_form_alter(&$form, FormStateInter
 function instagram_profile_link_form_validate(&$form, FormStateInterface $form_state) {
   $value = $form_state->getValue('field_instagram_profile_uri');
   $url = parse_url($value[0]['uri']);
-  $value[0]['uri'] = str_replace('?'.$url['query'], '', $value[0]['uri']);
-  $form_state->setValue('field_instagram_profile_uri', $value);
+  if (isset($url['query'])) {
+    $value[0]['uri'] = str_replace('?'.$url['query'], '', $value[0]['uri']);
+    $form_state->setValue('field_instagram_profile_uri', $value);
+  }
 }
 
 /**

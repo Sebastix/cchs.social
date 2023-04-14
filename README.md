@@ -34,6 +34,8 @@ See `.gitlab-ci.yml`
 * Voting API
 * Twig Tweak
 * CKEditor markdown
+* Unique content field validation
+
 
 Development only:
 * Coder

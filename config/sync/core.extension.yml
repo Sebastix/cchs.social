@@ -55,6 +55,7 @@ module:
   toolbar: 0
   twig_tweak: 0
   ultimate_cron: 0
+  unique_content_field_validation: 0
   unlimited_number: 0
   update: 0
   user: 0
