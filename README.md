@@ -35,7 +35,8 @@ See `.gitlab-ci.yml`
 * Twig Tweak
 * CKEditor markdown
 * Unique content field validation
-
+* Config ignore
+* Robots Txt
 
 Development only:
 * Coder
