@@ -39,6 +39,7 @@ See `.gitlab-ci.yml`
 * Config ignore
 * Robots Txt
 * Matomo
+* Field permissions
 
 Development only:
 * Coder

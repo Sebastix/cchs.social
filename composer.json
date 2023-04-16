@@ -28,6 +28,7 @@
     "drupal/config_split": "^1.9",
     "drupal/core-composer-scaffold": "^10.0",
     "drupal/core-recommended": "^10.0",
+    "drupal/field_permissions": "^1.2",
     "drupal/flood_control": "^2.3",
     "drupal/gin": "^3.0@alpha",
     "drupal/masquerade": "^2.0@RC",
