@@ -10,7 +10,7 @@ dependencies:
 _core:
   default_config_hash: I44QAB4es39lNzMQWiJLq2dfjX7VRSOzT_5KzAcUq_M
 id: authenticated
-label: 'Geverifieerde gebruiker'
+label: 'Authenticated user'
 weight: 1
 is_admin: false
 permissions:
