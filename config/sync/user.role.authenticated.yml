@@ -5,13 +5,12 @@ dependencies:
   module:
     - avatars
     - comment
-    - matomo
     - media
     - system
 _core:
   default_config_hash: I44QAB4es39lNzMQWiJLq2dfjX7VRSOzT_5KzAcUq_M
 id: authenticated
-label: 'Authenticated user'
+label: 'Geverifieerde gebruiker'
 weight: 1
 is_admin: false
 permissions:
@@ -20,6 +19,5 @@ permissions:
   - 'access user profiles'
   - 'avatars avatar_generator user robohash'
   - 'avatars avatar_generator user user_upload'
-  - 'opt-in or out of matomo tracking'
   - 'post comments'
   - 'view media'

@@ -38,7 +38,6 @@ See `.gitlab-ci.yml`
 * Unique content field validation
 * Config ignore
 * Robots Txt
-* Progressive Web App
 * Matomo
 
 Development only:
