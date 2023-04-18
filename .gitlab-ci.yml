@@ -1,4 +1,4 @@
-image: php:8.1-alpine
+image: php:8.2-alpine
 
 # Preparation:
 # Save $SSH_PRIVATE_KEY first in GitLab CI variables.
@@ -43,6 +43,8 @@ before_script:
   - apk add nodejs npm
   - node --version
   - npm --version
+  # install php gd extension
+  - apk add php8-gd
 
 build:drupal:
   stage: build
