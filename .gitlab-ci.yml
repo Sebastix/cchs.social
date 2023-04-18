@@ -44,7 +44,7 @@ before_script:
   - node --version
   - npm --version
   # install php gd extension
-  - apk add php8-gd
+  - docker-php-ext-install gd
 
 build:drupal:
   stage: build
