@@ -44,7 +44,8 @@ before_script:
   - node --version
   - npm --version
   # install php gd extension
-  - docker-php-ext-install gd
+  # see https://github.com/mlocati/docker-php-extension-installer
+  - curl -sSL https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions -o - | sh -s \ gd
 
 build:drupal:
   stage: build
