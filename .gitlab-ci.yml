@@ -70,7 +70,8 @@ deploy:staging:
       when: manual
   stage: deploy
   dependencies:
-    - build_site
+    - build:site
+    - build:theme
   script:
     - ls -la
     - rsync -a --delete -e ssh config $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT
@@ -103,7 +104,8 @@ deploy:prod:
       when: manual
   stage: deploy
   dependencies:
-    - build_site
+    - build:drupal
+    - build:theme
   script:
     - ls -la
     - $SSH_LOGIN_PROD "cd DRUPAL_PROJECT_ROOT_PROD && ls -la"
