@@ -59,11 +59,12 @@ build:drupal:
 build:theme:
   stage: build
   script:
+    - cd web/themes/custom/hix
     - npm install
     - npm run build
   artifacts:
     paths:
-      - web/themes/custom/hix
+      - web/themes/custom/hix/dist
 
 deploy:staging:
   rules:
