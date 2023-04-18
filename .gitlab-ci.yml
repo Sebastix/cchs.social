@@ -1,15 +1,23 @@
-image: alpine
+image: php:8.1-alpine
 
 # Preparation:
 # Save $SSH_PRIVATE_KEY first in GitLab CI variables.
 variables:
+  # Test
   DRUPAL_PROJECTROOT: "/var/www/cchs.sebastix.dev"
   URL: "https://cchs.sebastix.dev"
   SSH_LOGIN: "ssh -T root@sebastix.dev"
   SSH_USER: "root"
   SSH_HOST: "sebastix.dev"
+  # Production
+  DRUPAL_PROJECTROOT_PROD: "/home/cchs/domains/cchs.social"
+  URL_PROD: "https://cchs.social"
+  SSH_LOGIN_PROD: "cchs@cchs.social"
+  SSH_USER_PROD: "cchs"
+  SSH_HOST_PROD: "cchs.social"
 
 stages:
+  - build
   - deploy
 
 before_script:
@@ -20,20 +28,49 @@ before_script:
   - mkdir -p ~/.ssh
   - chmod 700 ~/.ssh
   - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+  # Install rsync
   - apk add rsync
   - rsync --version
+  # Install bash
+  - apk add bash
+  # Install curl
+  - apk add curl
+  # Install composer
+  - curl -s https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer
+  - alias composer='php /usr/bin/composer'
+  - composer --version
+  # Install nodejs and npm
+  - apk add nodejs npm
+  - node --version
+  - npm --version
 
-# @TODO - build stage
-# composer install in project root
-# npm install & npm run build in web/themes/custom/hix
+build:drupal:
+  stage: build
+  script:
+    - composer install --no-dev --prefer-dist --optimize-autoloader
+  artifacts:
+    paths:
+      - web
+      - vendor
 
-deploy_staging:
+build:theme:
+  stage: build
+  script:
+    - npm install
+    - npm run build
+  artifacts:
+    paths:
+      - web/themes/custom/hix
+
+deploy:staging:
   rules:
     - if: $CI_COMMIT_BRANCH == "develop"
       when: always
     - if: $CI_COMMIT_BRANCH == "master"
       when: manual
   stage: deploy
+  dependencies:
+    - build_site
   script:
     - ls -la
     - rsync -a --delete -e ssh config $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT
@@ -43,7 +80,6 @@ deploy_staging:
     - rsync -a -e ssh composer.lock $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT
     - $SSH_LOGIN "chown -R nginx:nginx $DRUPAL_PROJECTROOT"
     - $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && composer install --optimize-autoloader --no-dev --prefer-dist"
-    - $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && ls -la"
     # New site install
     #- $SSH_LOGIN "drush si -y"
     # Existing site: updates must be run before configuration is imported
@@ -59,3 +95,16 @@ deploy_staging:
     - echo "Deployment ready, check $URL"
 
 # @TODO - deploy to production cchs.social
+deploy:prod:
+  rules:
+    - if: $CI_COMMIT_BRANCH == "develop"
+      when: always
+    - if: $CI_COMMIT_BRANCH == "master"
+      when: manual
+  stage: deploy
+  dependencies:
+    - build_site
+  script:
+    - ls -la
+    - $SSH_LOGIN_PROD "cd DRUPAL_PROJECT_ROOT_PROD && ls -la"
+    - $SSH_LOGIN_PROD "cd $DRUPAL_PROJECT_ROOT_PROD && drush cr"
