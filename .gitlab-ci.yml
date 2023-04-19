@@ -113,7 +113,5 @@ deploy:prod:
     - build:theme
   script:
     - ls -la
-    - cat ~/.ssh/config
-    - ssh -T cchs@cchs.social
-    - $SSH_LOGIN_PROD "cd $DRUPAL_PROJECT_ROOT_PROD && ls -la"
-    - $SSH_LOGIN_PROD "cd $DRUPAL_PROJECT_ROOT_PROD && drush cr"
+    - $SSH_LOGIN_PROD "cd $DRUPAL_PROJECTROOT_PROD && ls -la"
+    - $SSH_LOGIN_PROD "cd $DRUPAL_PROJECTROOT_PROD && drush cr"
