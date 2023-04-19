@@ -117,7 +117,7 @@ deploy:prod:
   script:
     #- ls -la
     #- $SSH_LOGIN_PROD "cd $DRUPAL_PROJECTROOT_PROD && ls -la"
-    - rsync -avz --human-readable --progress --delete -e ssh ./config $SSH_USER_PROD@$SSH_HOST_PROD:$DRUPAL_PROJECTROOT_PROD
-    - rsync -avz --human-readable --progress --delete -e ssh ./vendor $SSH_USER_PROD@$SSH_HOST_PROD:$DRUPAL_PROJECTROOT_PROD
-    - rsync -avz --exclude='$DRUPAL_PROJECTROOT_PROD/private_html/sites/default/settings.local.php' --human-readable --progress --delete -e ssh ./web/ $SSH_USER_PROD@$SSH_HOST_PROD:$DRUPAL_PROJECTROOT_PROD/private_html/
+    - rsync -avz --progress --delete -e ssh ./config $SSH_USER_PROD@$SSH_HOST_PROD:$DRUPAL_PROJECTROOT_PROD
+    - rsync -avz --progress --delete -e ssh ./vendor $SSH_USER_PROD@$SSH_HOST_PROD:$DRUPAL_PROJECTROOT_PROD
+    - rsync -avz --exclude='$DRUPAL_PROJECTROOT_PROD/web/sites/default/settings.local.php' --progress --delete -e ssh ./web/ $SSH_USER_PROD@$SSH_HOST_PROD:$DRUPAL_PROJECTROOT_PROD/web
     #- $SSH_LOGIN_PROD "cd $DRUPAL_PROJECTROOT_PROD && drush st"
