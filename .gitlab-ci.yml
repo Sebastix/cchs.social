@@ -76,7 +76,7 @@ deploy:test:
       when: manual
     - if: $CI_COMMIT_BRANCH == "master"
       when: manual
-  stage: test
+  stage: deploy
   dependencies:
     - build:drupal
     - build:theme
