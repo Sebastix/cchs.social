@@ -81,12 +81,12 @@ deploy:test:
     - build:drupal
     - build:theme
   script:
-    - ls -la
-    - rsync -a --delete -e ssh config $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT
-    - rsync -a --delete -e ssh web/modules/custom $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT/web/modules
-    - rsync -a --delete -e ssh web/themes/custom $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT/web/themes
-    - rsync -a -e ssh composer.json $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT
-    - rsync -a -e ssh composer.lock $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT
+    - rsync -avz -e ssh ./composer.json $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT
+    - rsync -avz -e ssh ./composer.lock $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT
+    - rsync -avz --delete -e ssh ./config $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT
+    - rsync -avz --delete -e ssh ./vendor $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT
+    - rsync -avz --delete -e ssh web/modules/custom $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT/web/modules
+    - rsync -avz --delete -e ssh web/themes/custom $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT/web/themes
     - $SSH_LOGIN "chown -R nginx:nginx $DRUPAL_PROJECTROOT"
     - $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && composer install --optimize-autoloader --no-dev --prefer-dist"
     # New site install
@@ -117,7 +117,21 @@ deploy:prod:
   script:
     #- ls -la
     #- $SSH_LOGIN_PROD "cd $DRUPAL_PROJECTROOT_PROD && ls -la"
+    - rsync -avz -e ssh ./composer.json $SSH_USER_PROD@$SSH_HOST_PROD:$DRUPAL_PROJECTROOT_PROD
+    - rsync -avz -e ssh ./composer.lock $SSH_USER_PROD@$SSH_HOST_PROD:$DRUPAL_PROJECTROOT_PROD
     - rsync -avz --delete -e ssh ./config $SSH_USER_PROD@$SSH_HOST_PROD:$DRUPAL_PROJECTROOT_PROD
+    - $SSH_LOGIN_PROD "chmod -R 755 ./config"
     - rsync -avz --delete -e ssh ./vendor $SSH_USER_PROD@$SSH_HOST_PROD:$DRUPAL_PROJECTROOT_PROD
-    - rsync -avz --exclude='$DRUPAL_PROJECTROOT_PROD/web/sites/default/settings.local.php' --delete -e ssh ./web/ $SSH_USER_PROD@$SSH_HOST_PROD:$DRUPAL_PROJECTROOT_PROD/web
-    #- $SSH_LOGIN_PROD "cd $DRUPAL_PROJECTROOT_PROD && drush st"
+    - rsync -avz --exclude='./web/sites/default/settings.local.php' --delete -e ssh ./web/ $SSH_USER_PROD@$SSH_HOST_PROD:$DRUPAL_PROJECTROOT_PROD/web
+    - $SSH_LOGIN_PROD "chmod -R 755 ./web"
+    # symlinks
+    # private_html -> web: ln -s ./web ./private_html
+    # public_html -> web: ln -s ./web ./public_html
+    #- $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && drush cache-rebuild -y"
+    #- $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && drush updatedb -y"
+    #- $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && drush config-import -y"
+    #- $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && drush locale:check"
+    #- $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && drush locale:update"
+    #- $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && drush core-cron"
+    #- $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && drush cache-rebuild -y"
+    - echo "Deployment ready, check $URL_PROD"

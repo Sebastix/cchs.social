@@ -1,5 +1,6 @@
 _core:
   default_config_hash: 9rw2YgXiK9d42SeeSO8sPyCoxiG6rIlj64rJ8ocdEYU
+langcode: nl
 client_key: 'https://45d768e7e91440c894b77d5830bd2a07@logs.sebastix.dev/14'
 environment: production
 release: ''
