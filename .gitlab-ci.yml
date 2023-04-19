@@ -25,6 +25,7 @@ before_script:
   - apk add --update bash
   - eval $(ssh-agent -s)
   - echo "$SSH_PRIVATE_KEY" | ssh-add -
+  - echo "$SSH_PRIVATE_KEY_PROD" | ssh-add -
   - mkdir -p ~/.ssh
   - chmod 700 ~/.ssh
   - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
@@ -36,7 +37,7 @@ before_script:
   # Install curl
   - apk add curl
   # Install composer
-  - curl -s https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer
+  - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer
   - alias composer='php /usr/bin/composer'
   - composer --version
   # Install nodejs and npm
@@ -45,7 +46,7 @@ before_script:
   - npm --version
   # install php gd extension
   # - see https://github.com/mlocati/docker-php-extension-installer
-  - curl -sSL https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions -o - | sh -s \ gd
+  - curl -sSL -o /dev/null https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions -o - | sh -s \ gd
 
 build:drupal:
   stage: build
@@ -69,7 +70,7 @@ build:theme:
 deploy:staging:
   rules:
     - if: $CI_COMMIT_BRANCH == "develop"
-      when: always
+      when: manual
     - if: $CI_COMMIT_BRANCH == "master"
       when: manual
   stage: deploy
@@ -112,5 +113,7 @@ deploy:prod:
     - build:theme
   script:
     - ls -la
+    - cat ~/.ssh/config
+    - ssh -T cchs@cchs.social
     - $SSH_LOGIN_PROD "cd $DRUPAL_PROJECT_ROOT_PROD && ls -la"
     - $SSH_LOGIN_PROD "cd $DRUPAL_PROJECT_ROOT_PROD && drush cr"
