@@ -51,6 +51,7 @@ module:
   path: 0
   path_alias: 0
   robotstxt: 0
+  search: 0
   symfony_mailer: 0
   symfony_mailer_reroute: 0
   system: 0

@@ -112,5 +112,5 @@ deploy:prod:
     - build:theme
   script:
     - ls -la
-    - $SSH_LOGIN_PROD "cd DRUPAL_PROJECT_ROOT_PROD && ls -la"
+    - $SSH_LOGIN_PROD "cd $DRUPAL_PROJECT_ROOT_PROD && ls -la"
     - $SSH_LOGIN_PROD "cd $DRUPAL_PROJECT_ROOT_PROD && drush cr"

@@ -17,7 +17,6 @@ weight: 4
 is_admin: null
 permissions:
   - 'access user profiles'
-  - 'avatars avatar_generator user robohash'
   - 'avatars avatar_generator user user_upload'
   - 'cancel account'
   - 'create instagram_profile_link content'
