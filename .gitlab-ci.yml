@@ -46,7 +46,7 @@ before_script:
   - npm --version
   # install php gd extension
   # - see https://github.com/mlocati/docker-php-extension-installer
-  - curl -sSL https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions -o /dev/null - | sh -s \ gd
+  - curl -sSL https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions -o /dev/null | sh -s \ gd
 
 build:drupal:
   stage: build
@@ -115,3 +115,6 @@ deploy:prod:
     - ls -la
     - $SSH_LOGIN_PROD "cd $DRUPAL_PROJECTROOT_PROD && ls -la"
     - $SSH_LOGIN_PROD "cd $DRUPAL_PROJECTROOT_PROD && drush cr"
+    - rsync -a --delete -e ssh config $SSH_USER_PROD@$SSH_HOST_PROD:$DRUPAL_PROJECTROOT_PROD
+    - rsync -a --delete -e ssh vendor $SSH_USER_PROD@$SSH_HOST_PROD:$DRUPAL_PROJECTROOT_PROD
+    - rsync -a --delete -e ssh web/. $SSH_USER_PROD@$SSH_HOST_PROD:$DRUPAL_PROJECTROOT_PROD/private_html
