@@ -8,6 +8,11 @@ module.exports = {
     },
     extend: {},
   },
+  safelist: [
+    {
+      pattern: /rotate-.+/,
+    },
+  ],
   variants: {
     extend: {},
   },

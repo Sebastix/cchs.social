@@ -33,8 +33,6 @@ before_script:
   # Install rsync
   - apk add rsync
   - rsync --version
-  # Install bash
-  - apk add bash
   # Install curl
   - apk add curl
   # Install composer
@@ -107,7 +105,7 @@ deploy:test:
 deploy:prod:
   rules:
     - if: $CI_COMMIT_BRANCH == "develop"
-      when: always
+      when: manual
     - if: $CI_COMMIT_BRANCH == "master"
       when: manual
   stage: deploy
@@ -120,7 +118,7 @@ deploy:prod:
     - rsync -avz --delete -e ssh ./config $SSH_USER_PROD@$SSH_HOST_PROD:$DRUPAL_PROJECTROOT_PROD
     - $SSH_LOGIN_PROD "cd $DRUPAL_PROJECTROOT_PROD && chmod -R 755 ./config"
     - rsync -avz --delete -e ssh ./vendor $SSH_USER_PROD@$SSH_HOST_PROD:$DRUPAL_PROJECTROOT_PROD
-    - rsync -avz --exclude './web/sites/default/files' --exclude './web/sites/default/settings.local.php' --exclude './config/sync/symfony_mailer.mailer_transport.smtp.yml' --delete -e ssh ./web/ $SSH_USER_PROD@$SSH_HOST_PROD:$DRUPAL_PROJECTROOT_PROD/web
+    - rsync -avz --delete --exclude-from='gitlab-ci/rsync-excludes.txt' -e ssh ./web/ $SSH_USER_PROD@$SSH_HOST_PROD:$DRUPAL_PROJECTROOT_PROD/web
     - $SSH_LOGIN_PROD "cd $DRUPAL_PROJECTROOT_PROD && chmod -R 755 ./web"
     # symlinks
     # private_html -> web: ln -s ./web ./private_html
