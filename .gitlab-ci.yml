@@ -71,7 +71,7 @@ build:theme:
 deploy:test:
   rules:
     - if: $CI_COMMIT_BRANCH == "develop"
-      when: manual
+      when: always
     - if: $CI_COMMIT_BRANCH == "master"
       when: manual
   stage: deploy
