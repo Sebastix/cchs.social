@@ -39,7 +39,6 @@ permissions:
   - 'allow node instagram_profile_link field_comments soft delete'
   - 'create page content'
   - 'create terms in tags'
-  - 'create url aliases'
   - 'delete any comment'
   - 'delete any comment anytime'
   - 'delete any instagram_profile_link content'
