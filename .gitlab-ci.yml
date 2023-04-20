@@ -123,11 +123,11 @@ deploy:prod:
     # symlinks
     # private_html -> web: ln -s ./web ./private_html
     # public_html -> web: ln -s ./web ./public_html
-    #- $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && drush cache-rebuild -y"
-    #- $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && drush updatedb -y"
-    #- $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && drush config-import -y"
-    #- $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && drush locale:check"
-    #- $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && drush locale:update"
-    #- $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && drush core-cron"
-    #- $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && drush cache-rebuild -y"
+    - $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && drush cache-rebuild -y"
+    - $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && drush updatedb -y"
+    - $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && drush config-import -y"
+    - $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && drush locale:check"
+    - $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && drush locale:update"
+    - $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && drush core-cron"
+    - $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && drush cache-rebuild -y"
     - echo "Deployment ready, check $URL_PROD"
