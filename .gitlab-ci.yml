@@ -101,7 +101,6 @@ deploy:test:
     - $SSH_LOGIN "cd $DRUPAL_PROJECTROOT/web/themes/custom/hix && npm run build"
     - echo "Deployment ready, check $URL"
 
-# @TODO - deploy to production cchs.social
 deploy:prod:
   rules:
     - if: $CI_COMMIT_BRANCH == "develop"
