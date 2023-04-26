@@ -81,7 +81,7 @@
     <small>{{ random(5,9999) }}</small>
   </div>
   <div class="chat-bubble text-xs bg-gray-100 text-primary border- min-h-8 relative rounded-xl rounded-br-none">
-    {{ content }}
+    {{ content.comment_body|add_suggestion('cchs_comment_body') }}
     <div class="w-6 rounded-box absolute -right-10 bottom-0">{{ user_picture }}</div>
   </div>
   <div class="chat-footer text-xs text-gray-400">
