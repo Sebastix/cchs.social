@@ -11,6 +11,7 @@ dependencies:
     - comment_delete
     - filter
     - node
+    - search
 id: hix
 label: 'CCHS member'
 weight: 4
@@ -27,6 +28,7 @@ permissions:
   - 'delete own node instagram_profile_link field_comments anytime'
   - 'edit own comments'
   - 'post comments'
+  - 'search content'
   - 'select account cancellation method'
   - 'skip comment approval'
   - 'use text format ckeditor_comment'

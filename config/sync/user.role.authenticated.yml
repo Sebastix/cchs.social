@@ -6,6 +6,7 @@ dependencies:
     - avatars
     - comment
     - media
+    - search
     - system
 _core:
   default_config_hash: I44QAB4es39lNzMQWiJLq2dfjX7VRSOzT_5KzAcUq_M
@@ -19,4 +20,5 @@ permissions:
   - 'access user profiles'
   - 'avatars avatar_generator user user_upload'
   - 'post comments'
+  - 'search content'
   - 'view media'
