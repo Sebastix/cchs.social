@@ -14,6 +14,7 @@ blacklist:
   - advagg.settings
   - robotstxt.settings
   - symfony_mailer_mailer_transport.smtp
+  - symfony_mailer_reroute.settings.yml
   - symfony_mailer.settings
   - system.logging
 graylist: {  }
