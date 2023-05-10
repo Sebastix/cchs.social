@@ -5,6 +5,7 @@ dependencies:
   module:
     - avatars
     - comment
+    - field_permissions
     - media
     - search
     - system
@@ -21,4 +22,5 @@ permissions:
   - 'avatars avatar_generator user user_upload'
   - 'post comments'
   - 'search content'
+  - 'view field_is_verified'
   - 'view media'

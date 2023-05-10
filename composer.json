@@ -37,6 +37,7 @@
     "drupal/multiple_registration": "^3.2",
     "drupal/pathauto": "^1.11",
     "drupal/pwa": "^2.0@RC",
+    "drupal/rate": "^3.0",
     "drupal/raven": "^4.0",
     "drupal/robotstxt": "^1.5",
     "drupal/symfony_mailer": "^1.2@beta",
@@ -100,7 +101,9 @@
     },
     "enable-patching": true,
     "patches": {
-
+        "drupal/rate" : {
+            "PHP Fatal Error | undefined method Drupal\\Core\\Extension\\ModuleHandler::getImplementations() - https://www.drupal.org/project/rate/issues/3327528" : "https://git.drupalcode.org/project/rate/-/merge_requests/9.patch"
+        }
     }
   }
 }

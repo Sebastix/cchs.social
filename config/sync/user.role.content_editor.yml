@@ -37,6 +37,7 @@ permissions:
   - 'allow node instagram_profile_link field_comments hard delete'
   - 'allow node instagram_profile_link field_comments hard_partial delete'
   - 'allow node instagram_profile_link field_comments soft delete'
+  - 'create field_is_verified'
   - 'create page content'
   - 'create terms in tags'
   - 'delete any comment'

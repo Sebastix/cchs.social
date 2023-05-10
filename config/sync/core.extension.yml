@@ -51,6 +51,7 @@ module:
   page_cache: 0
   path: 0
   path_alias: 0
+  rate: 0
   robotstxt: 0
   search: 0
   symfony_mailer: 0
