@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c5dfbcd00ba5664c2cb9f606b440f4fb",
+    "content-hash": "3dbb43aa7bb205c67baa691fa81950f1",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2931,17 +2931,11 @@
         },
         {
             "name": "drupal/rate",
-            "version": "3.0.1",
+            "version": "dev-3.0.x",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/rate.git",
-                "reference": "3.0.1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/rate-3.0.1.zip",
-                "reference": "3.0.1",
-                "shasum": "72077a601955262a46a4b96cfb1e24cb5cba69dd"
+                "reference": "8c02683b37f6617a81cdf015c830ed4166adaefb"
             },
             "require": {
                 "drupal/core": "^9 || ^10",
@@ -2949,12 +2943,15 @@
             },
             "type": "drupal-module",
             "extra": {
+                "branch-alias": {
+                    "dev-3.0.x": "3.0.x-dev"
+                },
                 "drupal": {
-                    "version": "3.0.1",
-                    "datestamp": "1646428101",
+                    "version": "3.0.1+9-dev",
+                    "datestamp": "1683564806",
                     "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
+                        "status": "not-covered",
+                        "message": "Dev releases are not covered by Drupal security advisories."
                     }
                 }
             },
@@ -14230,6 +14227,7 @@
         "drupal/gin": 15,
         "drupal/masquerade": 5,
         "drupal/pwa": 5,
+        "drupal/rate": 20,
         "drupal/symfony_mailer": 10,
         "drupal/symfony_mailer_reroute": 10,
         "drupal/ultimate_cron": 15,
