@@ -62,6 +62,31 @@
     @apply text-2xl
   }
 
+  article h2 {
+    @apply text-xl;
+  }
+  article h3 {
+    @apply text-lg;
+  }
+  article hr {
+    @apply mb-4;
+  }
+  article p {
+    @apply mb-4;
+  }
+  article ul {
+    @apply mb-4 pl-4 list-disc;
+  }
+  article ul li {
+
+  }
+  article ul > li > ul {
+    @apply mb-0 pl-4 list-inside list-disc;
+  }
+  article ul > li > ul > li {
+    list-style-type: circle;
+  }
+
   [id$="-local-tasks"] ul {
     @apply menu menu-vertical md:menu-horizontal
   }
