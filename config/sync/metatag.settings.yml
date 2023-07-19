@@ -1,3 +1,4 @@
+langcode: nl
 entity_type_groups: {  }
 tag_trim_method: beforeValue
 tag_trim_maxlength:

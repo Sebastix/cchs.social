@@ -394,6 +394,15 @@ display:
             date_format: short
             custom_date_format: ''
             timezone: ''
+            tooltip:
+              date_format: ''
+              custom_date_format: ''
+            time_diff:
+              enabled: false
+              future_format: '@interval hence'
+              past_format: '@interval ago'
+              granularity: 2
+              refresh: 60
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -568,7 +577,7 @@ display:
           admin_label: ''
           plugin_id: text_custom
           empty: true
-          content: 'Geen reacties beschikbaar.'
+          content: 'No comments available.'
           tokenize: false
       sorts:
         changed:
@@ -867,7 +876,7 @@ display:
       cacheable: false
   page_published:
     id: page_published
-    display_title: 'Gepubliceerde reacties'
+    display_title: 'Published comments'
     display_plugin: page
     position: 1
     display_options:
@@ -1272,6 +1281,15 @@ display:
             date_format: short
             custom_date_format: ''
             timezone: ''
+            tooltip:
+              date_format: ''
+              custom_date_format: ''
+            time_diff:
+              enabled: false
+              future_format: '@interval hence'
+              past_format: '@interval ago'
+              granularity: 2
+              refresh: 60
           group_column: value
           group_columns: {  }
           group_rows: true

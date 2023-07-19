@@ -6,6 +6,7 @@ dependencies:
     - avatars
     - comment
     - field_permissions
+    - file
     - media
     - search
     - system
@@ -20,6 +21,7 @@ permissions:
   - 'access content'
   - 'access user profiles'
   - 'avatars avatar_generator user user_upload'
+  - 'delete own files'
   - 'post comments'
   - 'search content'
   - 'view field_is_verified'

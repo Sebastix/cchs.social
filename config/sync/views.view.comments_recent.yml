@@ -222,7 +222,7 @@ display:
           plugin_id: text_custom
           label: ''
           empty: true
-          content: 'Geen reacties beschikbaar.'
+          content: 'No comments available.'
           tokenize: false
       sorts:
         created:

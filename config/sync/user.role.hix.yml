@@ -10,6 +10,7 @@ dependencies:
     - comment
     - comment_delete
     - field_permissions
+    - file
     - filter
     - node
     - rate
@@ -26,6 +27,7 @@ permissions:
   - 'create instagram_profile_link content'
   - 'delete own comment'
   - 'delete own comment anytime'
+  - 'delete own files'
   - 'delete own instagram_profile_link content'
   - 'delete own node instagram_profile_link field_comments'
   - 'delete own node instagram_profile_link field_comments anytime'

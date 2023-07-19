@@ -49,6 +49,7 @@ permissions:
   - 'delete node instagram_profile_link field_comments replies anytime'
   - 'delete own comment'
   - 'delete own comment anytime'
+  - 'delete own files'
   - 'delete own node instagram_profile_link field_comments'
   - 'delete own node instagram_profile_link field_comments anytime'
   - 'delete own page content'
