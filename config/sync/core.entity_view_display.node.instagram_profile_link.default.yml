@@ -49,9 +49,10 @@ content:
   rate_cchs_plus_1:
     settings: {  }
     third_party_settings: {  }
-    weight: 100
+    weight: 3
     region: content
 hidden:
+  danse_subscribe: true
   langcode: true
   links: true
   rate_plus_1: true

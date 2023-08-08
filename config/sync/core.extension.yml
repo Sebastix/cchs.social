@@ -6,6 +6,7 @@ module:
   admin_toolbar_search: 0
   admin_toolbar_tools: 0
   advagg: 0
+  advancedqueue: 0
   automated_cron: 0
   avatars: 0
   backup_migrate: 0
@@ -20,6 +21,8 @@ module:
   config_filter: 0
   config_ignore: 0
   config_split: 0
+  danse: 0
+  danse_content: 0
   datetime: 0
   dblog: 0
   dynamic_page_cache: 0
@@ -51,10 +54,13 @@ module:
   page_cache: 0
   path: 0
   path_alias: 0
+  pf_email: 0
+  push_framework: 0
   rate: 0
   robotstxt: 0
   search: 0
   symfony_mailer: 0
+  symfony_mailer_log: 0
   symfony_mailer_reroute: 0
   system: 0
   taxonomy: 0
