@@ -6,7 +6,7 @@ dependencies:
     - search
 title: 'Updates indexable active search pages'
 id: search_cron
-weight: 0
+weight: 4
 module: search
 callback: search_cron
 scheduler:

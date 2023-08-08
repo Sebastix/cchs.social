@@ -6,7 +6,7 @@ dependencies:
     - advagg
 title: 'Default cron handler'
 id: advagg_cron
-weight: 0
+weight: -9
 module: advagg
 callback: advagg_cron
 scheduler:

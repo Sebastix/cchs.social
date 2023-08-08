@@ -6,7 +6,7 @@ dependencies:
     - avatars
 title: 'Default cron handler'
 id: avatars_cron
-weight: 0
+weight: -8
 module: avatars
 callback: avatars_cron
 scheduler:

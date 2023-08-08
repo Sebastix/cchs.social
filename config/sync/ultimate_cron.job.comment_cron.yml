@@ -6,7 +6,7 @@ dependencies:
     - comment
 title: 'Store the maximum possible comments per thread'
 id: comment_cron
-weight: 0
+weight: 3
 module: comment
 callback: comment_cron
 scheduler:

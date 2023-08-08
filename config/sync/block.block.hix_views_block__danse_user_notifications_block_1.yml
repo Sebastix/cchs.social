@@ -1,0 +1,25 @@
+uuid: 2e61a20c-dd05-478e-b349-1b173bd7152a
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.danse_user_notifications
+  module:
+    - views
+  theme:
+    - hix
+id: hix_views_block__danse_user_notifications_block_1
+theme: hix
+region: header
+weight: 0
+provider: null
+plugin: 'views_block:danse_user_notifications-block_1'
+settings:
+  id: 'views_block:danse_user_notifications-block_1'
+  label: ''
+  label_display: '0'
+  provider: views
+  context_mapping: {  }
+  views_label: ''
+  items_per_page: none
+visibility: {  }
