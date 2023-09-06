@@ -19,6 +19,11 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
+  danse_subscribe:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
 hidden:
   langcode: true
   links: true

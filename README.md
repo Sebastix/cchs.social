@@ -14,6 +14,8 @@ See `.gitlab-ci.yml`
 
 # Build with Drupal
 
+## Progressive Web Application
+
 ## Contrib modules
 
 * Config split
@@ -40,6 +42,7 @@ See `.gitlab-ci.yml`
 * Robots Txt
 * Matomo
 * Field permissions
+* DANSE
 
 Development only:
 * Coder
@@ -50,6 +53,9 @@ Development only:
 
 ## Theme
 
+TailwindCSS + Daisy UI using Lofi as the base theme
+The icons used are from https://heroicons.com/
+
 ## Custom work
 
 ### CCHS module
@@ -58,7 +64,10 @@ Development only:
 
 ## Security checks
 
-@TODO - https://github.com/FriendsOfPHP/security-advisories and https://github.com/fabpot/local-php-security-checker
+@TODO
+- https://github.com/FriendsOfPHP/security-advisories
+- https://github.com/fabpot/local-php-security-checker
+-
 
 ## Code checks
 
