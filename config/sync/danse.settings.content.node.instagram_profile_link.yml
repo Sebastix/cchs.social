@@ -11,8 +11,6 @@ events:
     update: '1'
     delete: '1'
   allow_entity_subscription:
-    publish:
-      - hix
     comment:
       - authenticated
       - content_editor
@@ -21,6 +19,7 @@ events:
     create: {  }
     update: {  }
     delete: {  }
+    publish: {  }
     unpublish: {  }
   'access settings':
     create: {  }
