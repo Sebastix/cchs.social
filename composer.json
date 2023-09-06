@@ -50,7 +50,7 @@
     "drupal/ultimate_cron": "^2.0@alpha",
     "drupal/unique_content_field_validation": "^1.1",
     "drupal/votingapi": "^3.0@beta",
-    "drush/drush": "^12.0"
+    "drush/drush": "^12.1"
   },
   "require-dev": {
     "drupal/coder": "^8.3",
