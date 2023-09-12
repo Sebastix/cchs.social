@@ -7,6 +7,11 @@ dependencies:
     - node.type.instagram_profile_link
   module:
     - options
+    - unique_content_field_validation
+third_party_settings:
+  unique_content_field_validation:
+    unique: false
+    unique_text: ''
 id: node.instagram_profile_link.field_is_verified
 field_name: field_is_verified
 entity_type: node

@@ -98,7 +98,7 @@ function hix_preprocess_views_view_field(&$variables){
   }
 }
 
-function hix_preprocess_comment(&$variables){
+function hix_preprocess_comment(&$variables) {
   /** @var \Drupal\Core\Datetime\DateFormatterInterface $date_formatter */
   $date_formatter = \Drupal::service('date.formatter');
   /** @var \Drupal\comment\CommentInterface $comment */
@@ -106,7 +106,7 @@ function hix_preprocess_comment(&$variables){
   $created_ago = $date_formatter->formatTimeDiffSince($comment->getCreatedTime());
   $variables['submitted'] = new TranslatableMarkup('by @username &middot; @ago ago', ['@username' => $variables['author'], '@ago' => $created_ago]);
   $variables['delete_own_comment'] = (\Drupal::currentUser()->id() == $comment->getOwnerId()) ? TRUE : FALSE;
- }
+}
 
 /**
  * @param array $suggestions
@@ -155,7 +155,6 @@ function hix_theme_suggestions_alter(array &$suggestions, array $variables, $hoo
         }
         $suggestions[] = 'fieldset__element_type__' . $type;
       }
-
     }
   }
   // Views.

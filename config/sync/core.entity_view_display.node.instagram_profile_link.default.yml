@@ -18,6 +18,11 @@ targetEntityType: node
 bundle: instagram_profile_link
 mode: default
 content:
+  danse_subscribe:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
+    region: content
   field_comments:
     type: comment_default
     label: hidden
@@ -40,17 +45,19 @@ content:
     weight: 0
     region: content
   field_is_verified:
-    type: list_key
+    type: list_default
     label: hidden
     settings: {  }
     third_party_settings: {  }
     weight: 1
     region: content
-  rate_upvote:
+  rate_cchs_plus_1:
     settings: {  }
     third_party_settings: {  }
-    weight: 0
+    weight: 3
     region: content
 hidden:
   langcode: true
   links: true
+  rate_plus_1: true
+  rate_upvote: true

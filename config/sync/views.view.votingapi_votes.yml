@@ -410,6 +410,15 @@ display:
             date_format: medium
             custom_date_format: ''
             timezone: ''
+            tooltip:
+              date_format: ''
+              custom_date_format: ''
+            time_diff:
+              enabled: false
+              future_format: '@interval hence'
+              past_format: '@interval ago'
+              granularity: 2
+              refresh: 60
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -570,7 +579,7 @@ display:
           exposed: true
           expose:
             operator_id: entity_type_op
-            label: Entiteitstype
+            label: 'Entity Type'
             description: ''
             use_operator: false
             operator: entity_type_op
@@ -1038,7 +1047,7 @@ display:
           entity_type: vote
           entity_field: entity_type
           plugin_id: field
-          label: Entiteitstype
+          label: 'Entity Type'
           exclude: false
           alter:
             alter_text: false
@@ -1348,6 +1357,15 @@ display:
             date_format: medium
             custom_date_format: ''
             timezone: ''
+            tooltip:
+              date_format: ''
+              custom_date_format: ''
+            time_diff:
+              enabled: false
+              future_format: '@interval hence'
+              past_format: '@interval ago'
+              granularity: 2
+              refresh: 60
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -1366,7 +1384,7 @@ display:
       path: admin/content/vote
       menu:
         type: tab
-        title: Stemmen
+        title: Votes
         description: ''
         weight: 0
         expanded: false
@@ -1441,7 +1459,7 @@ display:
       path: node/%node/votes
       menu:
         type: tab
-        title: Stemmen
+        title: Votes
         description: ''
         weight: 0
         expanded: false

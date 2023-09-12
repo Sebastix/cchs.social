@@ -89,14 +89,16 @@
   {% endif %}
 
   <div{{ content_attributes }}>
-    <a href="#" class="no-underline tooltip hover:bg-inherit" data-tip="Voting coming soon!">
-      <svg xmlns="http://www.w3.org/2000/svg" class="inline w-4 opacity-30 hover:opacity-100 hover:fill-orange-600" viewBox="0 0 448 512"><path d="M159.3 5.4c7.8-7.3 19.9-7.2 27.7 .1c27.6 25.9 53.5 53.8 77.7 84c11-14.4 23.5-30.1 37-42.9c7.9-7.4 20.1-7.4 28 .1c34.6 33 63.9 76.6 84.5 118c20.3 40.8 33.8 82.5 33.8 111.9C448 404.2 348.2 512 224 512C98.4 512 0 404.1 0 276.5c0-38.4 17.8-85.3 45.4-131.7C73.3 97.7 112.7 48.6 159.3 5.4zM225.7 416c25.3 0 47.7-7 68.8-21c42.1-29.4 53.4-88.2 28.1-134.4c-4.5-9-16-9.6-22.5-2l-25.2 29.3c-6.6 7.6-18.5 7.4-24.7-.5c-16.5-21-46-58.5-62.8-79.8c-6.3-8-18.3-8.1-24.7-.1c-33.8 42.5-50.8 69.3-50.8 99.4C112 375.4 162.6 416 225.7 416z"/></svg>
+    <a href="#" class="no-underline tooltip hover:bg-inherit hidden" data-tip="Voting coming soon!">
+      <svg xmlns="http://www.w3.org/2000/svg" class="inline w-6 opacity-20 hover:opacity-100 {{ random(['', '-']) }}rotate-{{ random([45, 90, 180]) }}" viewBox="0 0 32 32"><g fill="none"><path fill="#F8312F" d="M9.4 11.236L6.025 2.341c-.088-.233.181-.437.382-.29l7.9 5.806c.107.08.26.06.343-.046l2.963-3.724a.25.25 0 0 1 .444.132l.416 4.493a.25.25 0 0 0 .308.22l7.97-1.938a.25.25 0 0 1 .242.412l-4.927 5.37a.25.25 0 0 0 .055.382l7.344 4.456a.25.25 0 0 1-.104.463l-8.555.891a.25.25 0 0 0-.213.325l1.398 4.386a.25.25 0 0 1-.39.275l-3.842-2.908a.25.25 0 0 0-.382.104l-3.57 8.703a.25.25 0 0 1-.476-.042L11.054 19.2a.25.25 0 0 0-.303-.192l-7.433 1.783c-.245.058-.413-.243-.234-.421l5.145-5.102a.25.25 0 0 0-.084-.41l-3.97-1.572a.25.25 0 0 1 .032-.475l5.02-1.244a.25.25 0 0 0 .173-.332Z"/><path fill="#FCD53F" d="m12.276 15.226l-1.2 1.213a.25.25 0 0 0 .22.422l2.056-.367a.25.25 0 0 1 .29.205l.69 4.092c.046.264.413.296.502.043l1.296-3.665a.25.25 0 0 1 .396-.108l1.064.888a.25.25 0 0 0 .41-.192v-1.486a.25.25 0 0 1 .27-.249l4.512.37c.228.019.303-.3.09-.385l-4.712-1.893a.25.25 0 0 1-.116-.37l.889-1.34a.25.25 0 0 0-.217-.389l-1.475.047a.25.25 0 0 1-.257-.233l-.177-2.672c-.017-.25-.349-.323-.469-.104l-1.197 2.189a.25.25 0 0 1-.373.077l-2.349-1.835a.25.25 0 0 0-.393.268l.893 2.976a.25.25 0 0 1-.199.319l-2.05.341a.25.25 0 0 0-.088.461l1.645.987a.25.25 0 0 1 .049.39Z"/></g></svg>
       <small>{{ random(5,2000) }}</small>
     </a>
+    {{ content.rate_cchs_plus_1 }}
     {{ content.field_instagram_profile_uri }}
     {{ content.field_is_verified }}
     <br />
     <code class="text-xs text-gray-400">door {{ author_name }} {{ date }}</code>
+    {{ content.danse_subscribe }}
   </div>
 
   <div>
@@ -108,12 +110,12 @@
       <h2>{{ 'Add new comment'|t }}</h2>
       <form action="{{ path('user.login') }}">
         <div class="js-form-item form-item js-form-type-textarea">
-          <textarea disabled class="js-text-full text-full form-textarea disabled" rows="5" cols="60"></textarea>
+          <textarea disabled class="js-text-full text-full form-textarea disabled w-full max-w-screen-md" rows="5"></textarea>
         </div>
         <div class="form-actions">
           <small>Om te reageren moet je eerst <a href="{{ path('user.login') }}">inloggen</a> of <a href="{{ path('multiple_registration.role_registration_page', { 'rid' : 'hix' }) }}">registeren</a></small>
           <br />
-          <input type="submit" class="btn btn-outline btn-warning btn-wide btn-sm mt-3" value="{{ 'Post comment'|t }}">
+          <input type="submit" class="btn btn-outline btn-warning btn-block md:btn-wide btn-sm mt-3" value="{{ 'Post comment'|t }}">
         </div>
       </form>
     </section>

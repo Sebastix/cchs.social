@@ -6,12 +6,16 @@ id: acceptance
 label: Acceptance
 description: ''
 weight: 0
+storage: folder
 folder: ../config/acceptance
 module:
   raven: 0
 theme: {  }
-blacklist:
+complete_list:
+  - advagg.settings
+  - robotstxt.settings
+  - symfony_mailer_mailer_transport.smtp
+  - symfony_mailer_reroute.settings.yml
+  - symfony_mailer.settings
   - system.logging
-graylist: {  }
-graylist_dependents: true
-graylist_skip_equal: true
+partial_list: {  }

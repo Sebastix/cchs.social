@@ -6,7 +6,7 @@ dependencies:
     - votingapi
 title: 'Default cron handler'
 id: votingapi_cron
-weight: 0
+weight: -3
 module: votingapi
 callback: votingapi_cron
 scheduler:
