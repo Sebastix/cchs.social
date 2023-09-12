@@ -1,4 +1,4 @@
-uuid: e0aca89b-7c55-4338-af7f-b88220a61d9d
+uuid: b20a72f2-d9b1-4509-8983-627f759bff6e
 langcode: en
 status: true
 dependencies:
@@ -6,24 +6,12 @@ dependencies:
     - danse
 title: 'Default cron handler'
 id: danse_cron
-weight: -6
+weight: 0
 module: danse
 callback: danse_cron
 scheduler:
   id: simple
-  configuration:
-    rules:
-      - '* * * * *'
 launcher:
   id: serial
-  configuration:
-    timeouts:
-      lock_timeout: 3600
-    launcher:
-      thread: 0
 logger:
   id: database
-  configuration:
-    method: '3'
-    expire: 1209600
-    retain: 1000

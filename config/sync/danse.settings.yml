@@ -5,10 +5,7 @@ subscriptions_as_tab:
   view: 1
 recipient_selection_plugin:
   config: default
-  content: 'role:content_editor,role:administrator,role:hix'
+  content: admins
   log: admins
-prune:
-  content:
-    value: ''
-    type: all
+prune: {  }
 langcode: nl

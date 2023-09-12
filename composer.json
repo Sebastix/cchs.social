@@ -108,6 +108,9 @@
         "drupal/rate" : {
             "PHP Fatal Error | undefined method Drupal\\Core\\Extension\\ModuleHandler::getImplementations() - https://www.drupal.org/project/rate/issues/3327528" : "https://git.drupalcode.org/project/rate/-/merge_requests/9.patch",
             "Entity queries must explicitly set whether the query should be access checked or not. - https://www.drupal.org/project/rate/issues/3331890" : "https://git.drupalcode.org/project/rate/-/merge_requests/11.patch"
+        },
+        "drupal/danse" : {
+          "https://www.drupal.org/project/danse/issues/3379118" : "https://git.drupalcode.org/project/danse/-/merge_requests/9.patch"
         }
     }
   }
