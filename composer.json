@@ -40,7 +40,6 @@
     "drupal/pf_email": "^2.1",
     "drupal/push_framework": "2.2.x-dev",
     "drupal/pwa": "^2.0@RC",
-    "drupal/rate": "3.0.x-dev",
     "drupal/raven": "^4.0",
     "drupal/robotstxt": "^1.5",
     "drupal/symfony_mailer": "^1.2@beta",
