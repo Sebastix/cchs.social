@@ -838,6 +838,9 @@ display:
         type: none
         options:
           offset: 0
+      access:
+        type: none
+        options: {  }
       arguments:
         uid:
           id: uid
@@ -930,6 +933,7 @@ display:
         type: fields
         options: {  }
       defaults:
+        access: false
         css_class: false
         show_admin_links: false
         pager: false
@@ -968,7 +972,6 @@ display:
         - 'languages:language_interface'
         - url
         - user
-        - user.roles
       tags: {  }
   feed_1:
     id: feed_1
