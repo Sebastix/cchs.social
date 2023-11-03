@@ -6,6 +6,8 @@ id: acceptance
 label: Acceptance
 description: ''
 weight: 0
+stackable: false
+no_patching: false
 storage: folder
 folder: ../config/acceptance
 module:
