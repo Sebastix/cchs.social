@@ -1,5 +1,5 @@
 {
-  "name": "hix",
+  "name": "cchs",
   "private": true,
   "scripts": {
     "dev": "npx tailwindcss --input css/tailwind.pcss --output dist/tailwind.css --watch",
