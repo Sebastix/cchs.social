@@ -20,6 +20,14 @@ module.exports = {
     require('daisyui')
   ],
   daisyui: {
-    themes: ["lofi"]
+    themes: [
+      {
+        lofi: {
+          ...require("daisyui/src/theming/themes")["lofi"],
+          info: "blue",
+          warning: "ea580ccc", // same color as decoration-orange-600/80
+        },
+      },
+    ]
   }
 }
