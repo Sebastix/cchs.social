@@ -6,6 +6,8 @@ id: dev
 label: Development
 description: ''
 weight: 0
+stackable: false
+no_patching: false
 storage: folder
 folder: ../config/dev
 module:

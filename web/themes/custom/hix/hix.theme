@@ -81,8 +81,8 @@ function hix_preprocess_views_view_field(&$variables){
   $view = $variables['view'];
   /** @var \Drupal\views\Plugin\views\field\EntityField $field */
   $field = $variables['field'];
-  if($view->id() == 'frontpage_links') {
-    if($field->options['field'] == 'field_instagram_profile_uri') {
+  if($view->id() === 'frontpage_links') {
+    if($field->options['field'] === 'field_instagram_profile_uri') {
       $value = $field->getValue($variables['row']);
       $regex = '/(?:(?:http|https):\/\/)?(?:www\.)?(?:instagram\.com|instagr\.am)\/([A-Za-z0-9-_\.]+)/im';
       preg_match($regex, $value, $matches);
@@ -105,7 +105,7 @@ function hix_preprocess_comment(&$variables) {
   $comment = $variables['elements']['#comment'];
   $created_ago = $date_formatter->formatTimeDiffSince($comment->getCreatedTime());
   $variables['submitted'] = new TranslatableMarkup('by @username &middot; @ago ago', ['@username' => $variables['author'], '@ago' => $created_ago]);
-  $variables['delete_own_comment'] = (\Drupal::currentUser()->id() == $comment->getOwnerId()) ? TRUE : FALSE;
+  $variables['delete_own_comment'] = (\Drupal::currentUser()->id() === $comment->getOwnerId()) ? TRUE : FALSE;
 }
 
 /**

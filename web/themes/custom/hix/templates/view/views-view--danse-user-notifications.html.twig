@@ -43,7 +43,7 @@
   {{ title_suffix }}
 
   {% if header %}
-    <a href="/user/{{ user.id }}/notifications" class="indicator">
+    <a href="/notifications" class="indicator">
       {% if not header['result']['#markup'] == '0' %}
         <span class="indicator-item badge badge-primary h-4 px-1 rounded-full bg-warning border-warning">{{ header }}</span>
       {% endif %}

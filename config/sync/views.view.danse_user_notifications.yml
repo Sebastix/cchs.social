@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - user.role.authenticated
+    - user.role.hix
   module:
     - danse
     - user
@@ -111,7 +112,7 @@ display:
           entity_type: danse_event
           entity_field: topic
           plugin_id: field
-          label: Onderwerp
+          label: Topic
           exclude: false
           alter:
             alter_text: false
@@ -241,7 +242,7 @@ display:
           entity_type: danse_event
           entity_field: reference
           plugin_id: field
-          label: Referentie
+          label: Reference
           exclude: false
           alter:
             alter_text: false
@@ -306,7 +307,7 @@ display:
           entity_type: danse_notification
           entity_field: seen
           plugin_id: field
-          label: Bekeken
+          label: Seen
           exclude: false
           alter:
             alter_text: false
@@ -399,6 +400,7 @@ display:
         options:
           role:
             authenticated: authenticated
+            hix: hix
       cache:
         type: tag
         options: {  }
@@ -451,10 +453,8 @@ display:
             title: All
           title_enable: false
           title: ''
-          default_argument_type: user
-          default_argument_options:
-            user: false
-          default_argument_skip_url: false
+          default_argument_type: current_user
+          default_argument_options: {  }
           summary_options:
             base_path: ''
             count: true
@@ -551,6 +551,7 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - user
         - user.roles
       tags: {  }
   block_1:
@@ -838,6 +839,9 @@ display:
         type: none
         options:
           offset: 0
+      access:
+        type: none
+        options: {  }
       arguments:
         uid:
           id: uid
@@ -858,7 +862,6 @@ display:
           title: ''
           default_argument_type: current_user
           default_argument_options: {  }
-          default_argument_skip_url: false
           summary_options:
             base_path: ''
             count: true
@@ -930,6 +933,7 @@ display:
         type: fields
         options: {  }
       defaults:
+        access: false
         css_class: false
         show_admin_links: false
         pager: false
@@ -968,7 +972,6 @@ display:
         - 'languages:language_interface'
         - url
         - user
-        - user.roles
       tags: {  }
   feed_1:
     id: feed_1
@@ -1397,6 +1400,7 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
+        - user
         - user.roles
       tags: {  }
   page_1:
@@ -1422,7 +1426,7 @@ display:
           exposed: true
           expose:
             operator_id: ''
-            label: Bekeken
+            label: Seen
             description: ''
             use_operator: false
             operator: seen_op
@@ -1460,10 +1464,10 @@ display:
         metatag_display_extender:
           metatags: {  }
           tokenize: false
-      path: user/%user/notifications
+      path: notifications
       menu:
         type: tab
-        title: Meldingen
+        title: Notifications
         description: ''
         weight: 0
         expanded: false
@@ -1477,5 +1481,6 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - user
         - user.roles
       tags: {  }

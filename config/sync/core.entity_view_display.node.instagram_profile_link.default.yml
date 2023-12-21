@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.instagram_profile_link.field_comments
     - field.field.node.instagram_profile_link.field_instagram_profile_uri
     - field.field.node.instagram_profile_link.field_is_verified
+    - field.field.node.instagram_profile_link.field_nostr_note
     - node.type.instagram_profile_link
   module:
     - comment
@@ -50,6 +51,13 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 1
+    region: content
+  field_nostr_note:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 5
     region: content
   rate_cchs_plus_1:
     settings: {  }

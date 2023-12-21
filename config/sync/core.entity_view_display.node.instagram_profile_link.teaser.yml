@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.instagram_profile_link.field_comments
     - field.field.node.instagram_profile_link.field_instagram_profile_uri
     - field.field.node.instagram_profile_link.field_is_verified
+    - field.field.node.instagram_profile_link.field_nostr_note
     - node.type.instagram_profile_link
   module:
     - user
@@ -21,9 +22,9 @@ content:
     weight: 100
     region: content
   rate_cchs_plus_1:
-    weight: 100
     settings: {  }
     third_party_settings: {  }
+    weight: 100
     region: content
   rate_upvote:
     settings: {  }
@@ -31,7 +32,9 @@ content:
     weight: 100
     region: content
 hidden:
+  danse_subscribe: true
   field_comments: true
   field_instagram_profile_uri: true
   field_is_verified: true
+  field_nostr_note: true
   langcode: true
