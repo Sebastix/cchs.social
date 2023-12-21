@@ -43,6 +43,9 @@ See `.gitlab-ci.yml`
 * Matomo
 * Field permissions
 * DANSE
+* Honeypot
+* Nostr internet identifier NIP-05
+* Nostr simple publish
 
 Development only:
 * Coder

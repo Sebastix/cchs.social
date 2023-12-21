@@ -24,7 +24,7 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: Opdrachten
+      title: Jobs
       fields:
         job_id:
           id: job_id
@@ -142,7 +142,7 @@ display:
           group_type: group
           admin_label: ''
           plugin_id: advancedqueue_job_state
-          label: Status
+          label: State
           exclude: false
           alter:
             alter_text: true
@@ -195,7 +195,7 @@ display:
           group_type: group
           admin_label: ''
           plugin_id: advancedqueue_job_type
-          label: Vacaturetype
+          label: 'Job type'
           exclude: false
           alter:
             alter_text: false
@@ -244,7 +244,7 @@ display:
           group_type: group
           admin_label: ''
           plugin_id: advancedqueue_json
-          label: Inhoud
+          label: Payload
           exclude: false
           alter:
             alter_text: true
@@ -561,7 +561,6 @@ display:
           default_argument_type: fixed
           default_argument_options:
             argument: ''
-          default_argument_skip_url: false
           summary_options:
             base_path: ''
             count: true
@@ -597,7 +596,7 @@ display:
           exposed: true
           expose:
             operator_id: type_op
-            label: Vacaturetype
+            label: 'Job type'
             description: ''
             use_operator: false
             operator: type_op
@@ -638,7 +637,7 @@ display:
           exposed: true
           expose:
             operator_id: state_op
-            label: Status
+            label: State
             description: ''
             use_operator: false
             operator: state_op

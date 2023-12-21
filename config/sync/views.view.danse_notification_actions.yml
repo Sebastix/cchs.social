@@ -33,7 +33,7 @@ display:
           entity_type: danse_notification_action
           entity_field: created
           plugin_id: field
-          label: Aangemaakt
+          label: Created
           exclude: false
           alter:
             alter_text: false
@@ -109,7 +109,7 @@ display:
           entity_type: danse_notification_action
           entity_field: payload
           plugin_id: field
-          label: Inhoud
+          label: Payload
           exclude: false
           alter:
             alter_text: false
@@ -173,7 +173,7 @@ display:
           entity_type: danse_notification_action
           entity_field: success
           plugin_id: field
-          label: Succes
+          label: Success
           exclude: false
           alter:
             alter_text: false
@@ -307,7 +307,6 @@ display:
           default_argument_options:
             index: 4
             use_alias: false
-          default_argument_skip_url: false
           summary_options:
             base_path: ''
             count: true
@@ -345,7 +344,6 @@ display:
           default_argument_options:
             index: 6
             use_alias: false
-          default_argument_skip_url: false
           summary_options:
             base_path: ''
             count: true

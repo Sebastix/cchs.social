@@ -229,7 +229,7 @@ display:
           entity_type: danse_event
           entity_field: topic
           plugin_id: field
-          label: Onderwerp
+          label: Topic
           exclude: false
           alter:
             alter_text: false
@@ -294,7 +294,7 @@ display:
           entity_type: danse_event
           entity_field: reference
           plugin_id: field
-          label: Referentie
+          label: Reference
           exclude: false
           alter:
             alter_text: false
@@ -359,7 +359,7 @@ display:
           entity_type: danse_event
           entity_field: created
           plugin_id: field
-          label: Aangemaakt
+          label: Created
           exclude: false
           alter:
             alter_text: false
@@ -858,7 +858,7 @@ display:
           exposed: true
           expose:
             operator_id: topic_op
-            label: Onderwerp
+            label: Topic
             description: ''
             use_operator: false
             operator: topic_op
@@ -904,7 +904,7 @@ display:
           exposed: true
           expose:
             operator_id: reference_op
-            label: Referentie
+            label: Reference
             description: ''
             use_operator: false
             operator: reference_op

@@ -21,7 +21,7 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: Meldingen
+      title: Notifications
       fields:
         id:
           id: id
@@ -226,7 +226,7 @@ display:
           entity_type: danse_notification
           entity_field: changed
           plugin_id: field
-          label: Wijzigen
+          label: Change
           exclude: false
           alter:
             alter_text: false
@@ -302,7 +302,7 @@ display:
           entity_type: danse_notification
           entity_field: delivered
           plugin_id: field
-          label: Afgeleverd
+          label: Delivered
           exclude: false
           alter:
             alter_text: false
@@ -369,7 +369,7 @@ display:
           entity_type: danse_notification
           entity_field: seen
           plugin_id: field
-          label: Bekeken
+          label: Seen
           exclude: false
           alter:
             alter_text: false
@@ -568,7 +568,7 @@ display:
           entity_type: user
           entity_field: mail
           plugin_id: field
-          label: E-mail
+          label: Email
           exclude: false
           alter:
             alter_text: false
@@ -764,7 +764,6 @@ display:
           default_argument_options:
             index: 4
             use_alias: false
-          default_argument_skip_url: false
           summary_options:
             base_path: ''
             count: true

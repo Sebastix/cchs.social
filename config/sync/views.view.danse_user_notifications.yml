@@ -112,7 +112,7 @@ display:
           entity_type: danse_event
           entity_field: topic
           plugin_id: field
-          label: Onderwerp
+          label: Topic
           exclude: false
           alter:
             alter_text: false
@@ -242,7 +242,7 @@ display:
           entity_type: danse_event
           entity_field: reference
           plugin_id: field
-          label: Referentie
+          label: Reference
           exclude: false
           alter:
             alter_text: false
@@ -307,7 +307,7 @@ display:
           entity_type: danse_notification
           entity_field: seen
           plugin_id: field
-          label: Bekeken
+          label: Seen
           exclude: false
           alter:
             alter_text: false
@@ -455,7 +455,6 @@ display:
           title: ''
           default_argument_type: current_user
           default_argument_options: {  }
-          default_argument_skip_url: false
           summary_options:
             base_path: ''
             count: true
@@ -863,7 +862,6 @@ display:
           title: ''
           default_argument_type: current_user
           default_argument_options: {  }
-          default_argument_skip_url: false
           summary_options:
             base_path: ''
             count: true
@@ -1428,7 +1426,7 @@ display:
           exposed: true
           expose:
             operator_id: ''
-            label: Bekeken
+            label: Seen
             description: ''
             use_operator: false
             operator: seen_op
@@ -1469,7 +1467,7 @@ display:
       path: notifications
       menu:
         type: tab
-        title: Meldingen
+        title: Notifications
         description: ''
         weight: 0
         expanded: false
