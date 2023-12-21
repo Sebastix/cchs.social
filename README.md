@@ -4,9 +4,15 @@ CCHS - Community Curated Honda Stuff
 
 ## Roadmap
 
+@TODO
+
 ## Issues and contributions
 
+https://gitlab.com/sebastix-group/cchs.social/-/issues
+
 ## Support
+
+Contact [Sebastian Hagens - Sebastix](https://gitlab.com/Sebastix)
 
 # CI/CD
 
@@ -15,6 +21,8 @@ See `.gitlab-ci.yml`
 # Build with Drupal
 
 ## Progressive Web Application
+
+@TODO
 
 ## Contrib modules
 
@@ -56,8 +64,8 @@ Development only:
 
 ## Theme
 
-TailwindCSS + Daisy UI using Lofi as the base theme
-The icons used are from https://heroicons.com/
+TailwindCSS + Daisy UI using Lofi as the base theme (see `web/themes/custom/hix/tailwind.config.js`).
+The icons used are from https://heroicons.com/.
 
 ## Custom work
 
@@ -77,3 +85,5 @@ The icons used are from https://heroicons.com/
 @TODO - https://www.drupal.org/project/coder
 
 # License
+
+@TODO
