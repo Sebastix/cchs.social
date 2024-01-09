@@ -43,7 +43,7 @@
     "drupal/pathauto": "^1.11",
     "drupal/pf_email": "^2.3",
     "drupal/push_framework": "^2.3",
-    "drupal/pwa": "^2.0@beta",
+    "drupal/pwa": "^2.1@beta",
     "drupal/raven": "^5.0",
     "drupal/robotstxt": "^1.5",
     "drupal/symfony_mailer": "^1.2@beta",
