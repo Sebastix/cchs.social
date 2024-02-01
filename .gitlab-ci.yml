@@ -10,7 +10,7 @@ variables:
   SSH_USER: "root"
   SSH_HOST: "sebastix.dev"
   # Production
-  DRUPAL_PROJECTROOT_PROD: "/home/cchs/domains/cchs.social"
+  DRUPAL_PROJECTROOT_PROD: "/var/www/vhosts/cchs.social/domains/cchs.social"
   URL_PROD: "https://cchs.social"
   SSH_LOGIN_PROD: "ssh -T cchs@cchs.social"
   SSH_USER_PROD: "cchs"
