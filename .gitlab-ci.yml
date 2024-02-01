@@ -1,4 +1,4 @@
-image: php:8.2-alpine
+image: php:8.3-alpine
 
 # Preparation:
 # Save $SSH_PRIVATE_KEY first in GitLab CI variables.
@@ -92,6 +92,7 @@ deploy:test:
     # New site install
     #- $SSH_LOGIN "drush si -y"
     # Existing site: updates must be run before configuration is imported
+    - $SSH_LOGIN_PROD "cd $DRUPAL_PROJECTROOT_PROD && cat vendor/bin/drush"
     - $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && vendor/bin/drush updatedb -y"
     - $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && vendor/bin/drush config-import -y"
     - $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && vendor/bin/drush locale:check"
