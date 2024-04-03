@@ -16,6 +16,13 @@ variables:
   SSH_USER_PROD: "cchs"
   SSH_HOST_PROD: "cchs.social"
 
+workflow:
+  rules:
+    # Pipelines do not run when branchname starts with ^aupdt_
+    - if: $CI_COMMIT_BRANCH =~ /^aupdt_/
+      when: never
+    - when: always
+
 stages:
   - build
   - test
@@ -89,6 +96,7 @@ deploy:test:
     - rsync -avz --delete -e ssh web/themes/custom $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT/web/themes
     - $SSH_LOGIN "chown -R nginx:nginx $DRUPAL_PROJECTROOT"
     - $SSH_LOGIN "$DRUPAL_PROJECTROOT/vendor/bin/drush updatedb -y"
+    - $SSH_LOGIN "$DRUPAL_PROJECTROOT/vendor/bin/drush cache-rebuild -y"
     - $SSH_LOGIN "$DRUPAL_PROJECTROOT/vendor/bin/drush config-import -y"
     - $SSH_LOGIN "$DRUPAL_PROJECTROOT/vendor/bin/drush locale:check"
     - $SSH_LOGIN "$DRUPAL_PROJECTROOT/vendor/bin/drush locale:update"
@@ -112,10 +120,10 @@ deploy:prod:
     - rsync -avz --delete -e ssh ./config $SSH_USER_PROD@$SSH_HOST_PROD:$DRUPAL_PROJECTROOT_PROD
     - $SSH_LOGIN_PROD "cd $DRUPAL_PROJECTROOT_PROD && chmod -R 755 ./config"
     - rsync -avz --delete -e ssh ./vendor $SSH_USER_PROD@$SSH_HOST_PROD:$DRUPAL_PROJECTROOT_PROD
-    - rsync -avz --delete --exclude-from='gitlab-ci/rsync-excludes.txt' -e ssh ./web/ $SSH_USER_PROD@$SSH_HOST_PROD:$DRUPAL_PROJECTROOT_PROD/web
+    - rsync -avz --delete --exclude-from='gitlab-ci/rsync-excludes.txt' -e ssh ./web $SSH_USER_PROD@$SSH_HOST_PROD:$DRUPAL_PROJECTROOT_PROD/web
     - $SSH_LOGIN_PROD "cd $DRUPAL_PROJECTROOT_PROD && chmod -R 755 ./web"
-    - $SSH_LOGIN_PROD "$DRUPAL_PROJECTROOT_PROD/vendor/bin/drush cache-rebuild -y"
     - $SSH_LOGIN_PROD "$DRUPAL_PROJECTROOT_PROD/vendor/bin/drush updatedb -y"
+    - $SSH_LOGIN_PROD "$DRUPAL_PROJECTROOT_PROD/vendor/bin/drush cache-rebuild -y"
     - $SSH_LOGIN_PROD "$DRUPAL_PROJECTROOT_PROD/vendor/bin/drush config-import -y"
     - $SSH_LOGIN_PROD "$DRUPAL_PROJECTROOT_PROD/vendor/bin/drush locale:check"
     - $SSH_LOGIN_PROD "$DRUPAL_PROJECTROOT_PROD/vendor/bin/drush locale:update"
