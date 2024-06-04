@@ -8,6 +8,7 @@ dependencies:
     - field_permissions
     - file
     - media
+    - pwa
     - search
     - system
 _core:
@@ -19,6 +20,7 @@ is_admin: false
 permissions:
   - 'access comments'
   - 'access content'
+  - 'access pwa'
   - 'access user profiles'
   - 'avatars avatar_generator user user_upload'
   - 'delete own files'

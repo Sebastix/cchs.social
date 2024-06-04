@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "969fba657001f943df26f5414a48c3be",
+    "content-hash": "b681a280870dc080878be94d3ad5a5d7",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3432,20 +3432,20 @@
         },
         {
             "name": "drupal/raven",
-            "version": "5.0.14",
+            "version": "6.0.3",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/raven.git",
-                "reference": "5.0.14"
+                "reference": "6.0.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/raven-5.0.14.zip",
-                "reference": "5.0.14",
-                "shasum": "b6487db5f6be84aa06ccf48e878021c30a8511ba"
+                "url": "https://ftp.drupal.org/files/projects/raven-6.0.3.zip",
+                "reference": "6.0.3",
+                "shasum": "bd55037731daf6a07498d27d94615edfa9ac1070"
             },
             "require": {
-                "drupal/core": "^10.1 || ^11",
+                "drupal/core": "^10.2 || ^11",
                 "sentry/sentry": "^4.4"
             },
             "require-dev": {
@@ -3457,8 +3457,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "5.0.14",
-                    "datestamp": "1716361931",
+                    "version": "6.0.3",
+                    "datestamp": "1716401085",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -11131,6 +11131,67 @@
             }
         },
         {
+            "name": "drupal/devel_entity_updates",
+            "version": "4.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/devel_entity_updates.git",
+                "reference": "4.1.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/devel_entity_updates-4.1.1.zip",
+                "reference": "4.1.1",
+                "shasum": "ffcecdddac2b4c870801e022ee264ab58c51dff2"
+            },
+            "require": {
+                "drupal/core": "^9.2 || ^10",
+                "drupal/devel": "*",
+                "drush/drush": "^11 || ^12"
+            },
+            "require-dev": {
+                "drupal/devel": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "4.1.1",
+                    "datestamp": "1682701896",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                },
+                "drush": {
+                    "services": {
+                        "drush.services.yml": "^11 || ^12"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Francesco Placella (plach)",
+                    "homepage": "https://www.drupal.org/u/plach",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "plach",
+                    "homepage": "https://www.drupal.org/user/183211"
+                }
+            ],
+            "description": "Provides developers an API and drush command to perform automatic entity updates.",
+            "homepage": "http://drupal.org/project/devel_entity_updates",
+            "support": {
+                "source": "https://cgit.drupalcode.org/devel_entity_updates",
+                "issues": "https://drupal.org/project/issues/devel_entity_updates",
+                "irc": "irc://irc.freenode.org/drupal-contribute"
+            }
+        },
+        {
             "name": "drupal/tracer",
             "version": "1.0.2",
             "source": {
@@ -12447,20 +12508,20 @@
         },
         {
             "name": "palantirnet/drupal-rector",
-            "version": "0.18.6",
+            "version": "0.20.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/palantirnet/drupal-rector.git",
-                "reference": "94650bc58a9b99b9616115fa3a9e89dfc1135928"
+                "reference": "61ba1405da47d306dd594ebec024fd400616b816"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/palantirnet/drupal-rector/zipball/94650bc58a9b99b9616115fa3a9e89dfc1135928",
-                "reference": "94650bc58a9b99b9616115fa3a9e89dfc1135928",
+                "url": "https://api.github.com/repos/palantirnet/drupal-rector/zipball/61ba1405da47d306dd594ebec024fd400616b816",
+                "reference": "61ba1405da47d306dd594ebec024fd400616b816",
                 "shasum": ""
             },
             "require": {
-                "rector/rector": "~0.18.0",
+                "rector/rector": "^1.0",
                 "webflo/drupal-finder": "^1.2"
             },
             "replace": {
@@ -12469,14 +12530,14 @@
             },
             "require-dev": {
                 "cweagans/composer-patches": "^1.7.2",
-                "friendsofphp/php-cs-fixer": "^3.38",
-                "php": "^8.1",
+                "friendsofphp/php-cs-fixer": "^3.0",
+                "php": "^8.2",
                 "phpstan/extension-installer": "^1.1",
                 "phpstan/phpstan": "^1.0",
                 "phpstan/phpstan-deprecation-rules": "^1.0",
                 "phpunit/phpunit": "^10.0",
                 "symfony/yaml": "^5 || ^6",
-                "symplify/rule-doc-generator": "^12.0",
+                "symplify/rule-doc-generator": "dev-main",
                 "symplify/vendor-patches": "^11.0"
             },
             "type": "library",
@@ -12508,6 +12569,14 @@
                 {
                     "name": "Matt Glaman",
                     "email": "nmd.matt@gmail.com"
+                },
+                {
+                    "name": "Björn Brala",
+                    "email": "drupal@bjorn.dev"
+                },
+                {
+                    "name": "Ken Rickard",
+                    "email": "agentrickard@gmail.com"
                 }
             ],
             "description": "Instant fixes for your Drupal code by using Rector.",
@@ -12519,9 +12588,9 @@
                 "rector"
             ],
             "support": {
-                "source": "https://github.com/palantirnet/drupal-rector/tree/0.18.6"
+                "source": "https://github.com/palantirnet/drupal-rector/tree/0.20.2"
             },
-            "time": "2023-12-28T16:38:54+00:00"
+            "time": "2024-04-26T14:28:14+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -13932,27 +14001,30 @@
         },
         {
             "name": "rector/rector",
-            "version": "0.18.13",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/rector.git",
-                "reference": "f8011a76d36aa4f839f60f3b4f97707d97176618"
+                "reference": "556509e2dcf527369892b7d411379c4a02f31859"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/rector/zipball/f8011a76d36aa4f839f60f3b4f97707d97176618",
-                "reference": "f8011a76d36aa4f839f60f3b4f97707d97176618",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/556509e2dcf527369892b7d411379c4a02f31859",
+                "reference": "556509e2dcf527369892b7d411379c4a02f31859",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.2|^8.0",
-                "phpstan/phpstan": "^1.10.35"
+                "phpstan/phpstan": "^1.11"
             },
             "conflict": {
                 "rector/rector-doctrine": "*",
                 "rector/rector-downgrade-php": "*",
                 "rector/rector-phpunit": "*",
                 "rector/rector-symfony": "*"
+            },
+            "suggest": {
+                "ext-dom": "To manipulate phpunit.xml via the custom-rule command"
             },
             "bin": [
                 "bin/rector"
@@ -13976,7 +14048,7 @@
             ],
             "support": {
                 "issues": "https://github.com/rectorphp/rector/issues",
-                "source": "https://github.com/rectorphp/rector/tree/0.18.13"
+                "source": "https://github.com/rectorphp/rector/tree/1.1.0"
             },
             "funding": [
                 {
@@ -13984,7 +14056,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-12-20T16:08:01+00:00"
+            "time": "2024-05-18T09:40:27+00:00"
         },
         {
             "name": "sebastian/cli-parser",
@@ -15883,6 +15955,7 @@
     "stability-flags": {
         "drupal/advagg": 15,
         "drupal/gin": 15,
+        "drupal/gin_toolbar": 5,
         "drupal/masquerade": 5,
         "drupal/nostr_id_nip05": 15,
         "drupal/nostr_simple_publish": 15,

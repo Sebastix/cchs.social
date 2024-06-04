@@ -1,7 +1,5 @@
 image: php:8.3-alpine
 
-# Preparation:
-# Save $SSH_PRIVATE_KEY first in GitLab CI variables.
 variables:
   # Test
   DRUPAL_PROJECTROOT: "/var/www/cchs.sebastix.dev"

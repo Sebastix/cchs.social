@@ -33,6 +33,7 @@
     "drupal/field_permissions": "^1.2",
     "drupal/flood_control": "^2.3",
     "drupal/gin": "^3.0@alpha",
+    "drupal/gin_toolbar": "^1.0@RC",
     "drupal/honeypot": "^2.1",
     "drupal/masquerade": "^2.0@RC",
     "drupal/matomo": "^1.21",
@@ -44,7 +45,7 @@
     "drupal/pf_email": "^2.3",
     "drupal/push_framework": "^2.3",
     "drupal/pwa": "^2.1@beta",
-    "drupal/raven": "^5.0",
+    "drupal/raven": "^6.0",
     "drupal/robotstxt": "^1.5",
     "drupal/symfony_mailer": "^1.2@beta",
     "drupal/symfony_mailer_log": "^1.2@beta",
@@ -59,8 +60,9 @@
     "drupal/coder": "^8.3",
     "drupal/core-dev": "^10.0",
     "drupal/devel": "^5.1",
+    "drupal/devel_entity_updates": "^4.1",
     "drupal/webprofiler": "^10.0",
-    "palantirnet/drupal-rector": "^0.18.2"
+    "palantirnet/drupal-rector": "^0.20.2"
   },
   "conflict": {
     "drupal/drupal": "*"

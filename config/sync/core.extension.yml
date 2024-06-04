@@ -60,6 +60,7 @@ module:
   path_alias: 0
   pf_email: 0
   push_framework: 0
+  pwa: 0
   rate: 0
   robotstxt: 0
   search: 0
