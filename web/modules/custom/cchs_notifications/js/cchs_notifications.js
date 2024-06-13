@@ -49,6 +49,9 @@
   async function doNotification(context, title, options) {
 
     const sendButton = document.querySelector('.danse-subscription-operation');
+    if (!sendButton) {
+      return;
+    }
     const registration = await navigator.serviceWorker.getRegistration();
 
     const sendNotification = async () => {

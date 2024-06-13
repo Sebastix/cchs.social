@@ -23,7 +23,7 @@ class CchsNotifications extends ChannelBase {
    * {@inheritdoc}
    */
   public function getConfigName(): string {
-    // 'pf_email.settings';
+    //return 'pf_cchs_notifications.settings';
     return '';
   }
 

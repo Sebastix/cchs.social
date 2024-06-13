@@ -13,6 +13,7 @@ use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Queue\QueueFactory;
 use Drupal\danse_content\Service as DanseContent;
 use Drupal\push_framework\ChannelPluginManager;
+use Drupal\push_framework\SourceItem;
 use Drupal\push_framework\SourcePluginManager;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
@@ -133,6 +134,10 @@ final class CchsNotifications extends ControllerBase {
                     'urgency' => '',
                   ],
                 ];
+
+                // TODO: Create DANSE notification action here ?
+                // $item = new SourceItem($notification_plugin, $notification->id(), $notification->uid());
+
                 $queue_factory->createItem($pushData);
                 // $worker->processItem($pushData);
               }
