@@ -44,6 +44,9 @@ class CchsNotifications extends ChannelBase {
     // }
     // $result = FALSE;
     // $result ? self::RESULT_STATUS_SUCCESS : self::RESULT_STATUS_FAILED;.
+    // NADA - does not do.
+    // \Drupal::service('logger.factory')->get('Test-me')
+    // ->notice('<pre>' . print_r($content, TRUE) .'</pre>');.
     return self::RESULT_STATUS_SUCCESS;
   }
 

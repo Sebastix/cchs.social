@@ -10,7 +10,7 @@ use Drupal\Component\Serialization\Json;
 use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Ajax\DataCommand;
 use Drupal\Core\Controller\ControllerBase;
-use Drupal\Core\Queue\QueueWorkerManagerInterface;
+use Drupal\Core\Queue\QueueFactory;
 use Drupal\danse_content\Service as DanseContent;
 use Drupal\push_framework\ChannelPluginManager;
 use Drupal\push_framework\SourcePluginManager;
@@ -28,7 +28,7 @@ final class CchsNotifications extends ControllerBase {
     private readonly SourcePluginManager $sourcePlugin,
     private readonly ChannelPluginManager $channelPlugin,
     private readonly DanseContent $danseContentService,
-    private readonly QueueWorkerManagerInterface $queueWorkerManager,
+    private readonly QueueFactory $queueFactory,
   ) {}
 
   /**
@@ -39,7 +39,7 @@ final class CchsNotifications extends ControllerBase {
       $container->get('push_framework.source.plugin.manager'),
       $container->get('push_framework.channel.plugin.manager'),
       $container->get('danse_content.service'),
-      $container->get('plugin.manager.queue_worker')
+      $container->get('queue')
     );
   }
 
@@ -75,8 +75,8 @@ final class CchsNotifications extends ControllerBase {
         $channel_plugin = $this->channelPlugin->createInstance('cchs_notifications');
         $plugin = $this->danseContentService->getPlugin();
         $plugin->createNotifications();
-        $worker = $this->queueWorkerManager->createInstance('web_push');
-
+        // $worker = $this->queueWorkerManager->createInstance('web_push');
+        $queue_factory = $this->queueFactory->get('web_push');
         foreach ($danse_events_array as $danse_event) {
 
           $notifications_array = $this->entityTypeManager()->getStorage('danse_notification')
@@ -90,8 +90,7 @@ final class CchsNotifications extends ControllerBase {
           if (!empty($notifications_array)) {
             /** @var \Drupal\danse\Entity\NotificationInterface $notification */
             foreach ($notifications_array as $notification) {
-              if ($this->currentUser()->id() == (int) $notification->uid()) {
-
+              if ($this->currentUser()->id() != (int) $notification->uid()) {
                 $notifications[$notification->id()] = $notification->toArray();
                 $entity = $notification_plugin->getObjectAsEntity($notification->id());
                 $user_storage = $this->entityTypeManager()->getStorage('user');
@@ -134,7 +133,8 @@ final class CchsNotifications extends ControllerBase {
                     'urgency' => '',
                   ],
                 ];
-                $worker->processItem($pushData);
+                $queue_factory->createItem($pushData);
+                // $worker->processItem($pushData);
               }
             }
           }
