@@ -1,0 +1,19 @@
+uuid: 35db3c79-ef3b-44c8-8e05-a08e557c7d92
+langcode: nl
+status: true
+dependencies:
+  module:
+    - serialization
+    - user
+    - web_push
+_core:
+  default_config_hash: IbEekGOL_lhmjbCbzSC2QW0YqiczI-szuYInTKSyYJ0
+id: web_push_subscription
+plugin_id: web_push_subscription
+granularity: method
+configuration:
+  POST:
+    supported_formats:
+      - json
+    supported_auth:
+      - cookie

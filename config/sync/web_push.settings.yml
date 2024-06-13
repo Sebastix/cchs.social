@@ -1,0 +1,9 @@
+_core:
+  default_config_hash: TJ54BWxWViy_O4kN4dtBttob5oZiTu69rcQT79dcq5A
+batchSize: '1000'
+topic: ''
+ttl: '2419200'
+urgency: normal
+displayBlock: 1
+debugMode: 1
+langcode: nl

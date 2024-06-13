@@ -15,6 +15,7 @@ module:
   block_content: 0
   breakpoint: 0
   cchs: 0
+  cchs_notifications: 0
   ckeditor5: 0
   comment: 0
   comments_order: 0
@@ -61,9 +62,12 @@ module:
   pf_email: 0
   push_framework: 0
   pwa: 0
+  queue_ui: 0
   rate: 0
+  rest: 0
   robotstxt: 0
   search: 0
+  serialization: 0
   symfony_mailer: 0
   symfony_mailer_log: 0
   symfony_mailer_reroute: 0
@@ -79,6 +83,7 @@ module:
   user: 0
   views_ui: 0
   votingapi: 0
+  web_push: 0
   pathauto: 1
   views: 10
   comment_delete: 1000
