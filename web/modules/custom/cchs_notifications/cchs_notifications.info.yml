@@ -1,0 +1,8 @@
+name: 'cchs_notifications'
+type: module
+description: 'Custom module for push notifications. Implements DANSE.'
+package: DANSE
+core_version_requirement: ^10 || ^11
+dependencies:
+  - danse_content:danse_content
+  - web_push:web_push

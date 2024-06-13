@@ -1,0 +1,43 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for cchs_notifications module.
+ */
+
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Drupal\Core\Entity\EntityInterface;
+
+/**
+ * Implements hook_entity_insert().
+ */
+function cchs_notifications_entity_insert(EntityInterface $entity) {
+
+  if ($entity->getEntityTypeId() == 'danse_event') {
+    // \Drupal::service('web_push.manager')->sendNotification(
+    // 'Notification Title',
+    // 'Notification Body',
+    // 'https://cchs.social.ddev.site',
+    // 'notification-icon-url',
+    // \Drupal\web_push\Service\WebPushSender::URGENCY_HIGH
+    // );
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_view_alter() for node entities.
+ */
+function cchs_notifications_node_view_alter(array &$build, EntityInterface $node, EntityViewDisplayInterface $display) {
+  if ($node->isNew() || isset($node->in_preview)) {
+    return;
+  }
+
+  if ($display->getOriginalMode() === 'full') {
+    $build['#cache']['contexts'][] = 'user.roles:authenticated';
+    if (\Drupal::currentUser()->isAuthenticated()) {
+      $build['#attached']['library'][] = 'web_push/manual_subscrition';
+      $build['#attached']['library'][] = 'cchs_notifications/notify';
+    }
+  }
+
+}

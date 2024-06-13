@@ -1,0 +1,7 @@
+cchs_notifications.fetch:
+  path: '/cch_notification/fetch'
+  defaults:
+    _title: 'Fetch Notifications'
+    _controller: '\Drupal\cchs_notifications\Controller\CchsNotifications::fetch'
+  requirements:
+    _permission: 'access content'

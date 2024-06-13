@@ -1,0 +1,6 @@
+notify:
+  js:
+    js/cchs_notifications.js: {}
+  dependencies:
+    - core/drupal
+    - core/once

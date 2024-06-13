@@ -1,0 +1,42 @@
+diff --git a/js/manage_subscription.js b/js/manage_subscription.js
+index 3ee0376..f3dd128 100644
+--- a/js/manage_subscription.js
++++ b/js/manage_subscription.js
+@@ -121,7 +121,7 @@ WebPushSubscription = {
+       );
+     })
+     .catch((e) => {
+-      alert(Drupal.t('The notification service is not available'))
++      // alert(Drupal.t('The notification service is not available'))
+     })
+   },
+ 
+diff --git a/js/manual_subscription.js b/js/manual_subscription.js
+index a33212f..35940ea 100644
+--- a/js/manual_subscription.js
++++ b/js/manual_subscription.js
+@@ -5,7 +5,7 @@
+ ((Drupal, once) => {
+   Drupal.behaviors.webPush = {
+     attach: (context, settings) => {
+-      const subscribeButtonList = once('webpush', document.getElementsByClassName('web-push-button subscribe'), context);
++      const subscribeButtonList = once('webpush', document.querySelectorAll('.web-push-button, .danse-subscription-operation'), context);
+       let alreadySubscribeStatus = false;
+ 
+       WebPushSubscription.settings = settings;
+@@ -15,12 +15,10 @@
+        * Manage display based on subscribe status.
+        */
+       const manageDisplay = () => {
+-        let buttonText = Drupal.t('Unsubscribe');
+-        if (alreadySubscribeStatus) {
+-          buttonText = Drupal.t('Subscribe');
+-        }
+         for (let subscribeButton of subscribeButtonList) {
+-          subscribeButton.innerHTML = buttonText;
++          const keyWord = alreadySubscribeStatus ? 'Subscribe' : 'Unsubscribe';
++          const replace = keyWord === 'Subscribe' ? 'Unsubscribe' : 'Subscribe';
++          subscribeButton.innerHTML = Drupal.t(subscribeButton.innerHTML.replace(replace, keyWord));
+         }
+       };
+ 
