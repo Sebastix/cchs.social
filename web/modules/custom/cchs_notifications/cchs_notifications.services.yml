@@ -1,6 +1,4 @@
 services:
-  cchs_notifications.event_subscriber:
-    class: Drupal\cchs_notifications\EventSubscriber\DanseSubscribeSubscriber
-    arguments: ['@entity_type.manager']
-    tags:
-      - { name: event_subscriber }
+  cchs_notifications.web_push:
+    class: Drupal\cchs_notifications\Service\WebPushExtender
+    arguments: ['@logger.channel.web_push', '@config.factory', '@web_push.authentication_helper', '@entity_type.manager', '@request_stack']

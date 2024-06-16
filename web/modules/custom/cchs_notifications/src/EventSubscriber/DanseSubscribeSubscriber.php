@@ -40,13 +40,12 @@ final class DanseSubscribeSubscriber implements EventSubscriberInterface {
     $do = $url->isRouted() && in_array($url->getRouteName(), static::DANSE_SUBSCRIBE_ROUTES) && $response instanceof AjaxResponse;
 
     if ($do) {
-      // $subscribeUrl = Url::fromRoute('rest.web_push_subscription.POST')
-      // ->toString();
+      $subscribeUrl = Url::fromRoute('rest.web_push_subscription.POST')->toString();
       // $route_name = $url->getRouteName();
       // $route_params = $url->getRouteParameters();
       // Unsubscribe, delete subscription.
-      // if ($route_name == static::DANSE_SUBSCRIBE_ROUTES[1]) {
-      // }
+      if ($route_name == static::DANSE_SUBSCRIBE_ROUTES[1]) {
+      }
     }
   }
 
