@@ -2,3 +2,7 @@ services:
   cchs_notifications.web_push:
     class: Drupal\cchs_notifications\Service\WebPushExtender
     arguments: ['@logger.channel.web_push', '@config.factory', '@web_push.authentication_helper', '@entity_type.manager', '@request_stack']
+  cchs_notifications.route_subscriber:
+    class: Drupal\cchs_notifications\EventSubscriber\DanseRouteSubscriber
+    tags:
+      - { name: event_subscriber }
