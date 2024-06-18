@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Drupal\cchs_notifications\Controller;
 
+use Drupal\Core\Access\AccessResultAllowed;
 use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Ajax\DataCommand;
 use Drupal\Core\Config\ConfigFactoryInterface;
@@ -33,7 +34,7 @@ final class WebPushSubscription extends Subscription {
    */
   const MESSAGES = [
     'success' => 'Successfully',
-    'error' => 'The Notification service is not correctly set. No <em>public key</em>',
+    'error' => 'The Notification service is not correctly set. No <em>public key</em> set in config.',
   ];
 
   /**
@@ -41,12 +42,12 @@ final class WebPushSubscription extends Subscription {
    */
   public function __construct(
     EntityTypeManagerInterface $entity_type_manager,
-    DanseService $service,
-    Service $content_service,
-    UserDataInterface $user_data,
-    AccountProxyInterface $current_user,
-    private readonly ConfigFactoryInterface $configFactory,
-    private readonly MessengerInterface $messenger,
+    ?DanseService $service,
+    ?Service $content_service,
+    ?UserDataInterface $user_data,
+    ?AccountProxyInterface $current_user,
+    private readonly ?ConfigFactoryInterface $configFactory,
+    private readonly ?MessengerInterface $messenger,
   ) {
     parent::__construct($entity_type_manager, $service, $content_service, $user_data, $current_user);
   }
@@ -54,8 +55,8 @@ final class WebPushSubscription extends Subscription {
   /**
    * {@inheritdoc}
    */
-  public static function create(ContainerInterface $container): Subscription {
-    return new static(
+  public static function create(ContainerInterface $container): WebPushSubscription {
+    return new self(
       $container->get('entity_type.manager'),
       $container->get('danse.service'),
       $container->get('danse_content.service'),
@@ -70,9 +71,12 @@ final class WebPushSubscription extends Subscription {
    * {@inheritdoc}
    */
   public function subscribe(string $entity_type, string $entity_id, string $key): AjaxResponse {
+    $access = $this->checkAccessSubscribe($entity_type, $entity_id, $key);
     $this->userData->set('danse', $this->currentUser->id(), $key, 1);
     $response = parent::subscribe($entity_type, $entity_id, $key);
-    $this->modifyResponse($response);
+    if ($access instanceof AccessResultAllowed) {
+      $this->modifyResponse($response);
+    }
     return $response;
   }
 
@@ -80,8 +84,18 @@ final class WebPushSubscription extends Subscription {
    * {@inheritdoc}
    */
   public function unsubscribe(string $entity_type, string $entity_id, string $key): AjaxResponse {
+    $access = $this->checkAccessUnsubscribe($entity_type, $entity_id, $key);
     $response = parent::unsubscribe($entity_type, $entity_id, $key);
-    $this->modifyResponse($response, FALSE);
+    if ($access instanceof AccessResultAllowed) {
+
+      $this->modifyResponse($response, FALSE);
+
+      // Contrib module web_push does not clean up its subscription entities.
+      // Sp let's do it here. Note that client site subscription
+      // gets removed with a call above.
+      // @todo Implement this call.
+      $this->removeWebPushSubscription($response);
+    }
     return $response;
   }
 
@@ -116,6 +130,7 @@ final class WebPushSubscription extends Subscription {
       $response->addAttachments($attachments);
 
       // A Flag, subscribe or un-subscribe.
+      // @todo Collect more data here to send to JS.
       $data = [
         'subscribe' => $op,
       ];
@@ -132,5 +147,13 @@ final class WebPushSubscription extends Subscription {
       ]));
     }
   }
+
+  /**
+   * Remove web_push subscription entity here.
+   *
+   * @param \Drupal\Core\Ajax\AjaxResponse $response
+   *   Ajax response object returned from parent, DANSE controller.
+   */
+  private function removeWebPushSubscription(AjaxResponse &$response): void {}
 
 }
