@@ -32,7 +32,7 @@ final class WebPushSubscription extends Subscription {
    * @var array
    */
   const MESSAGES = [
-    'success' => 'Successfully @op',
+    'success' => 'Successfully',
     'error' => 'The Notification service is not correctly set. No <em>public key</em>',
   ];
 
@@ -121,8 +121,9 @@ final class WebPushSubscription extends Subscription {
       ];
       $response->addCommand(new DataCommand('', 'cchs_notifications', $data));
       $subscribe_label = $op ? 'subscribed' : 'unsubscribed';
-      $this->messenger->addMessage($this->t('@message', [
-        '@message' => self::MESSAGES['success'] . ' ' . $subscribe_label,
+      $this->messenger->addMessage($this->t('@message @op', [
+        '@message' => self::MESSAGES['success'],
+        '@op' => $subscribe_label,
       ]));
     }
     else {

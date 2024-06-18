@@ -142,9 +142,6 @@
         },
         "drupal/rate" : {
             "PHP Fatal Error | undefined method Drupal\\Core\\Extension\\ModuleHandler::getImplementations() - https://www.drupal.org/project/rate/issues/3327528" : "https://git.drupalcode.org/project/rate/-/merge_requests/9.patch"
-        },
-        "drupal/web_push" : {
-            "Basic DANSE support" : "patches/danse_support.patch"
         }
     }
   }
