@@ -19,7 +19,7 @@ final class WebPushExtender extends WebPushSender implements WebPushExtenderInte
     // For now, just a placeholder values,
     // seems mandatory to create Notification.
     // Then, in PF channel plugin we re-generate the real ones,
-    // based on DANSE notifications.
+    // based on DANSE notification, which is already created at that stage.
     $push_data = [
       'content' => [
         'title' => 'Default',
