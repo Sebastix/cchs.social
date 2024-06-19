@@ -75,7 +75,7 @@ final class WebPushSubscription extends Subscription {
     $this->userData->set('danse', $this->currentUser->id(), $key, 1);
     $response = parent::subscribe($entity_type, $entity_id, $key);
     if ($access instanceof AccessResultAllowed) {
-      $this->modifyResponse($response);
+      $this->modifyResponse($response, $entity_type, $entity_id, $key);
     }
     return $response;
   }
@@ -88,7 +88,7 @@ final class WebPushSubscription extends Subscription {
     $response = parent::unsubscribe($entity_type, $entity_id, $key);
     if ($access instanceof AccessResultAllowed) {
 
-      $this->modifyResponse($response, FALSE);
+      $this->modifyResponse($response, $entity_type, $entity_id, $key, FALSE);
 
       // Contrib module web_push does not clean up its subscription entities.
       // Sp let's do it here. Note that client site subscription
@@ -104,10 +104,16 @@ final class WebPushSubscription extends Subscription {
    *
    * @param \Drupal\Core\Ajax\AjaxResponse $response
    *   Ajax response object returned from parent, DANSE controller.
+   * @param string $entity_type
+   *   The entity type ID.
+   * @param string $entity_id
+   *   The entity ID.
+   * @param string $key
+   *   The subscription key.
    * @param bool $op
    *   Subscribe or un-subscribe flag.
    */
-  private function modifyResponse(AjaxResponse &$response, bool $op = TRUE): void {
+  private function modifyResponse(AjaxResponse &$response, string $entity_type, string $entity_id, string $key, bool $op = TRUE): void {
 
     // Get the VAPID Public Key to add it in JS notification subscription.
     $config = $this->configFactory->get(VAPIDForm::$configId);
@@ -133,7 +139,16 @@ final class WebPushSubscription extends Subscription {
       // @todo Collect more data here to send to JS.
       $data = [
         'subscribe' => $op,
+        'entity_type' => $entity_type,
+        'entity_id' => $entity_id,
       ];
+
+      if ($entity = $this->entityTypeManager->getStorage($entity_type)->load($entity_id)) {
+        $data['entity_title'] = $entity->label();
+        $data['key'] = $key;
+        $data['entity'] = $entity->toArray();
+      }
+
       $response->addCommand(new DataCommand('', 'cchs_notifications', $data));
       $subscribe_label = $op ? 'subscribed' : 'unsubscribed';
       $this->messenger->addMessage($this->t('@message @op', [
