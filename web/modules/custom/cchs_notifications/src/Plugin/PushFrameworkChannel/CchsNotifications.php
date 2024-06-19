@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Drupal\cchs_notifications\Plugin\PushFrameworkChannel;
 
+use Drupal\Component\Utility\Html;
 use Drupal\Core\Entity\ContentEntityInterface;
 use Drupal\push_framework\ChannelBase;
 use Drupal\user\UserInterface;
@@ -84,8 +85,8 @@ class CchsNotifications extends ChannelBase {
     $icon = '';
     $push_data = [
       'content' => [
-        'title' => $title,
-        'body' => $body,
+        'title' => Html::decodeEntities($title),
+        'body' => Html::decodeEntities($body),
         'icon' => $icon,
         'url' => $url,
       ],
