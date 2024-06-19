@@ -103,7 +103,7 @@ final class WebPushSubscription extends Subscription {
    * Add some data and make ready for WebPush subscription entity.
    *
    * @param \Drupal\Core\Ajax\AjaxResponse $response
-   *   Ajax response object returned from parent, DANSE controller.
+   *   Ajax response object returned from parent, DANSE content controller.
    * @param string $entity_type
    *   The entity type ID.
    * @param string $entity_id
