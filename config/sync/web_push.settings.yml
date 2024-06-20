@@ -4,6 +4,6 @@ batchSize: '1000'
 topic: ''
 ttl: '2419200'
 urgency: normal
-displayBlock: 1
+displayBlock: 0
 debugMode: 1
 langcode: nl

@@ -2,5 +2,5 @@ notify:
   js:
     js/cchs_notifications.js: {}
   dependencies:
-    - core/drupal
-    - core/once
+    - core/drupalSettings
+    - web_push/manual_subscrition

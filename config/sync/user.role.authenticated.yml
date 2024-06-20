@@ -2,6 +2,8 @@ uuid: fea52550-187c-4272-ac5e-97c938e0ca4e
 langcode: nl
 status: true
 dependencies:
+  config:
+    - rest.resource.web_push_subscription
   module:
     - avatars
     - comment
@@ -9,6 +11,7 @@ dependencies:
     - file
     - media
     - pwa
+    - rest
     - search
     - system
 _core:
@@ -25,6 +28,7 @@ permissions:
   - 'avatars avatar_generator user user_upload'
   - 'delete own files'
   - 'post comments'
+  - 'restful post web_push_subscription'
   - 'search content'
   - 'view field_is_verified'
   - 'view media'
