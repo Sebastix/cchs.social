@@ -5,27 +5,21 @@ dependencies:
   config:
     - filter.format.ckeditor_comment
     - node.type.instagram_profile_link
-    - rest.resource.web_push_subscription
   module:
     - avatars
     - comment
     - comment_delete
-    - field_permissions
     - file
     - filter
     - node
-    - rate
-    - rest
-    - search
 id: hix
-label: 'CCHS member'
+label: 'HiX member'
 weight: 4
 is_admin: null
 permissions:
   - 'access user profiles'
   - 'avatars avatar_generator user user_upload'
   - 'cancel account'
-  - 'cast rate vote on node of instagram_profile_link'
   - 'create instagram_profile_link content'
   - 'delete own comment'
   - 'delete own comment anytime'
@@ -35,10 +29,6 @@ permissions:
   - 'delete own node instagram_profile_link field_comments anytime'
   - 'edit own comments'
   - 'post comments'
-  - 'restful post web_push_subscription'
-  - 'search content'
   - 'select account cancellation method'
   - 'skip comment approval'
   - 'use text format ckeditor_comment'
-  - 'view field_is_verified'
-  - 'view own field_is_verified'

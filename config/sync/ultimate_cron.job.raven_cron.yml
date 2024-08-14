@@ -1,14 +1,14 @@
-uuid: 5cda1f82-d40a-40f2-8e06-c8fa7c358362
+uuid: 093aedc1-dc82-4a3e-9458-3faff34697dc
 langcode: en
 status: true
 dependencies:
   module:
-    - symfony_mailer_log
+    - raven
 title: 'Default cron handler'
-id: symfony_mailer_log_cron
+id: raven_cron
 weight: 0
-module: symfony_mailer_log
-callback: symfony_mailer_log_cron
+module: raven
+callback: raven_cron
 scheduler:
   id: simple
 launcher:

@@ -1,14 +1,7 @@
-roles:
-  hix:
-    path: /registreer
-    url: /user/register/hix
-    redirect_path: /
-    hidden: 1
-    form_mode_register: register
-    form_mode_edit: register
-multiple_registration_path_hix: /register
-multiple_registration_url_hix: /user/register/hix
-multiple_registration_redirect_path_hix: /
-multiple_registration_hidden_hix: 0
-multiple_registration_form_mode_register_hix: register
-multiple_registration_form_mode_edit_hix: default
+hix:
+  path: /registreer
+  url: /user/register/hix
+  redirect_path: /
+  hidden: 1
+  form_mode_register: register
+  form_mode_edit: register
