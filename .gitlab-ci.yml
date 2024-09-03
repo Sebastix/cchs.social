@@ -75,34 +75,34 @@ build:theme:
     paths:
       - web/themes/custom/hix/dist
 
-deploy:test:
-  rules:
-    - if: $CI_COMMIT_BRANCH == "develop"
-      when: always
-    - if: $CI_COMMIT_BRANCH == "master"
-      when: manual
-  stage: deploy
-  dependencies:
-    - build:drupal
-    - build:theme
-  script:
-    - rsync -avz -e ssh ./composer.json $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT
-    - rsync -avz -e ssh ./composer.lock $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT
-    - rsync -avz --delete --exclude-from='gitlab-ci/rsync-excludes.txt' -e ssh ./config $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT
-    - rsync -avz --delete --exclude-from='gitlab-ci/rsync-excludes.txt' -e ssh ./vendor $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT
-    - rsync -avz --delete --exclude-from='gitlab-ci/rsync-excludes.txt' -e ssh ./web $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT
-    - $SSH_LOGIN "chown -R nginx:nginx $DRUPAL_PROJECTROOT"
-    - $SSH_LOGIN "chcon -R -t httpd_sys_rw_content_t $DRUPAL_PROJECTROOT/private" # permission fix wit SELinux on CentOS7
-    - $SSH_LOGIN "chcon -R -t httpd_sys_rw_content_t $DRUPAL_PROJECTROOT/web/sites/default/files" # permission fix wit SELinux on CentOS7
-    - $SSH_LOGIN "$DRUPAL_PROJECTROOT/vendor/bin/drush updatedb -y"
-    - $SSH_LOGIN "$DRUPAL_PROJECTROOT/vendor/bin/drush cache-rebuild -y"
-    - $SSH_LOGIN "$DRUPAL_PROJECTROOT/vendor/bin/drush config-import -y"
-    - $SSH_LOGIN "$DRUPAL_PROJECTROOT/vendor/bin/drush locale:check"
-    - $SSH_LOGIN "$DRUPAL_PROJECTROOT/vendor/bin/drush locale:update"
-    - $SSH_LOGIN "$DRUPAL_PROJECTROOT/vendor/bin/drush core-cron"
-    - $SSH_LOGIN "$DRUPAL_PROJECTROOT/vendor/bin/drush cache-rebuild -y"
-    - $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && vendor/bin/drush deploy:hook"
-    - echo "Deployment ready, check $URL"
+#deploy:test:
+#  rules:
+#    - if: $CI_COMMIT_BRANCH == "develop"
+#      when: always
+#    - if: $CI_COMMIT_BRANCH == "master"
+#      when: manual
+#  stage: deploy
+#  dependencies:
+#    - build:drupal
+#    - build:theme
+#  script:
+#    - rsync -avz -e ssh ./composer.json $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT
+#    - rsync -avz -e ssh ./composer.lock $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT
+#    - rsync -avz --delete --exclude-from='gitlab-ci/rsync-excludes.txt' -e ssh ./config $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT
+#    - rsync -avz --delete --exclude-from='gitlab-ci/rsync-excludes.txt' -e ssh ./vendor $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT
+#    - rsync -avz --delete --exclude-from='gitlab-ci/rsync-excludes.txt' -e ssh ./web $SSH_USER@$SSH_HOST:$DRUPAL_PROJECTROOT
+#    - $SSH_LOGIN "chown -R nginx:nginx $DRUPAL_PROJECTROOT"
+#    - $SSH_LOGIN "chcon -R -t httpd_sys_rw_content_t $DRUPAL_PROJECTROOT/private" # permission fix wit SELinux on CentOS7
+#    - $SSH_LOGIN "chcon -R -t httpd_sys_rw_content_t $DRUPAL_PROJECTROOT/web/sites/default/files" # permission fix wit SELinux on CentOS7
+#    - $SSH_LOGIN "$DRUPAL_PROJECTROOT/vendor/bin/drush updatedb -y"
+#    - $SSH_LOGIN "$DRUPAL_PROJECTROOT/vendor/bin/drush cache-rebuild -y"
+#    - $SSH_LOGIN "$DRUPAL_PROJECTROOT/vendor/bin/drush config-import -y"
+#    - $SSH_LOGIN "$DRUPAL_PROJECTROOT/vendor/bin/drush locale:check"
+#    - $SSH_LOGIN "$DRUPAL_PROJECTROOT/vendor/bin/drush locale:update"
+#    - $SSH_LOGIN "$DRUPAL_PROJECTROOT/vendor/bin/drush core-cron"
+#    - $SSH_LOGIN "$DRUPAL_PROJECTROOT/vendor/bin/drush cache-rebuild -y"
+#    - $SSH_LOGIN "cd $DRUPAL_PROJECTROOT && vendor/bin/drush deploy:hook"
+#    - echo "Deployment ready, check $URL"
 
 deploy:prod:
   rules:
