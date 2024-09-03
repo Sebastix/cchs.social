@@ -1,6 +1,0 @@
-notify:
-  js:
-    js/cchs_notifications.js: {}
-  dependencies:
-    - core/drupalSettings
-    - web_push/manual_subscrition
