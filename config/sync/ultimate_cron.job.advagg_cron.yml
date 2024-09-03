@@ -1,14 +1,14 @@
-uuid: 863c1cd8-56cb-4a52-a0e5-d3b6cacbe73f
+uuid: bac14184-6d1d-458d-8221-53974d22426b
 langcode: en
 status: true
 dependencies:
   module:
-    - honeypot
+    - advagg
 title: 'Default cron handler'
-id: honeypot_cron
+id: advagg_cron
 weight: 0
-module: honeypot
-callback: honeypot_cron
+module: advagg
+callback: advagg_cron
 scheduler:
   id: simple
 launcher:

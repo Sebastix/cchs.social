@@ -45,6 +45,7 @@
     "drupal/pf_email": "^2.3",
     "drupal/push_framework": "^2.3",
     "drupal/pwa": "^2.1@beta",
+    "drupal/queue_ui": "^3.1",
     "drupal/raven": "^6.0",
     "drupal/robotstxt": "^1.5",
     "drupal/symfony_mailer": "^1.2@beta",
@@ -54,7 +55,7 @@
     "drupal/ultimate_cron": "^2.0@alpha",
     "drupal/unique_content_field_validation": "^1.1",
     "drupal/votingapi": "^3.0@beta",
-    "drupal/web_push": "1.0.x-dev",
+    "drupal/web_push": "^1.0@RC",
     "drush/drush": "^12.1"
   },
   "require-dev": {

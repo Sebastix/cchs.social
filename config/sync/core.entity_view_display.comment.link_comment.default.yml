@@ -19,7 +19,7 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
-  danse_subscribe:
+  rate_comment_upvote:
     settings: {  }
     third_party_settings: {  }
     weight: 1
@@ -27,4 +27,3 @@ content:
 hidden:
   langcode: true
   links: true
-  rate_comment_upvote: true
