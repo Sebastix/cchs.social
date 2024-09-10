@@ -53,7 +53,7 @@ before_script:
 build:drupal:
   stage: build
   script:
-    - composer install --no-dev --prefer-dist --optimize-autoloader
+    - composer install --prefer-dist --optimize-autoloader
   artifacts:
     paths:
       - web
