@@ -16,6 +16,7 @@ variables:
 
 stages:
   - build
+  - validate
   - test
   - deploy
 
@@ -68,6 +69,28 @@ build:theme:
     paths:
       - web/themes/custom/hix/dist
 
+validate:composer-lint:
+  stage: validate
+  dependencies:
+    - build:drupal
+  script:
+    - composer --version
+    - composer validate
+
+validate:phpcs:
+  stage: validate
+  allow_failure: true
+  script:
+    - vendor/bin/phpcs web/modules/custom
+    - vendor/bin/phpcs web/themes/custom
+
+validate:phpstan:
+  stage: validate
+  allow_failure: true
+  script:
+    - vendor/bin/phpstan web/modules/custom
+    - vendor/bin/phpstan web/themes/custom
+
 #deploy:test:
 #  rules:
 #    - if: $CI_COMMIT_BRANCH == "develop"
@@ -110,18 +133,19 @@ deploy:prod:
   script:
     - rsync -avz -e ssh ./composer.json $SSH_USER_PROD@$SSH_HOST_PROD:$DRUPAL_PROJECTROOT_PROD
     - rsync -avz -e ssh ./composer.lock $SSH_USER_PROD@$SSH_HOST_PROD:$DRUPAL_PROJECTROOT_PROD
-    - rsync -avz --delete -e ssh ./config $SSH_USER_PROD@$SSH_HOST_PROD:$DRUPAL_PROJECTROOT_PROD
+    - rsync -az --stats --delete -e ssh ./config $SSH_USER_PROD@$SSH_HOST_PROD:$DRUPAL_PROJECTROOT_PROD
     - $SSH_LOGIN_PROD "cd $DRUPAL_PROJECTROOT_PROD && chmod -R 755 ./config"
-    - rsync -avz --delete -e ssh ./vendor $SSH_USER_PROD@$SSH_HOST_PROD:$DRUPAL_PROJECTROOT_PROD
-    - rsync -avz --delete -e ssh web/modules/custom $SSH_USER_PROD@$SSH_HOST_PROD:$DRUPAL_PROJECTROOT_PROD/web/modules
-    - rsync -avz --delete -e ssh web/themes/custom $SSH_USER_PROD@$SSH_HOST_PROD:$DRUPAL_PROJECTROOT_PROD/web/themes
-    - rsync -avz --delete --exclude-from='gitlab-ci/rsync-excludes.txt' -e ssh ./web $SSH_USER_PROD@$SSH_HOST_PROD:$DRUPAL_PROJECTROOT_PROD/web
+    - rsync -az --stats --delete -e ssh ./vendor $SSH_USER_PROD@$SSH_HOST_PROD:$DRUPAL_PROJECTROOT_PROD
+    - rsync -az --stats --delete -e ssh web/modules/custom $SSH_USER_PROD@$SSH_HOST_PROD:$DRUPAL_PROJECTROOT_PROD/web/modules
+    - rsync -az --stats --delete -e ssh web/themes/custom $SSH_USER_PROD@$SSH_HOST_PROD:$DRUPAL_PROJECTROOT_PROD/web/themes
+    - rsync -az --stats --delete --exclude-from='gitlab-ci/rsync-excludes.txt' -e ssh ./web $SSH_USER_PROD@$SSH_HOST_PROD:$DRUPAL_PROJECTROOT_PROD/web
     - $SSH_LOGIN_PROD "cd $DRUPAL_PROJECTROOT_PROD && chmod -R 755 ./web"
-    - $SSH_LOGIN_PROD "$DRUPAL_PROJECTROOT_PROD/vendor/bin/drush updatedb -y"
+    - $SSH_LOGIN_PROD "$DRUPAL_PROJECTROOT_PROD/vendor/bin/drush updatedb -y --no-cache-clear"
     - $SSH_LOGIN_PROD "$DRUPAL_PROJECTROOT_PROD/vendor/bin/drush cache-rebuild -y"
     - $SSH_LOGIN_PROD "$DRUPAL_PROJECTROOT_PROD/vendor/bin/drush config-import -y"
     - $SSH_LOGIN_PROD "$DRUPAL_PROJECTROOT_PROD/vendor/bin/drush locale:check"
     - $SSH_LOGIN_PROD "$DRUPAL_PROJECTROOT_PROD/vendor/bin/drush locale:update"
     - $SSH_LOGIN_PROD "$DRUPAL_PROJECTROOT_PROD/vendor/bin/drush core-cron"
     - $SSH_LOGIN_PROD "$DRUPAL_PROJECTROOT_PROD/vendor/bin/drush cache-rebuild -y"
+    - $SSH_LOGIN_PROD "$DRUPAL_PROJECTROOT_PROD/vendor/bin/drush deploy:hook"
     - echo "Deployment ready, check $URL_PROD"
