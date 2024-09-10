@@ -138,15 +138,7 @@
     },
     "enable-patching": true,
     "patches": {
-        "drupal/core": {
-            "[warning] No configuration objects have been updated - https://www.drupal.org/project/drupal/issues/2957279#comment-14355237" : "https://www.drupal.org/files/issues/2022-01-03/2957279-11.patch"
-        },
-        "drupal/rate" : {
-            "PHP Fatal Error | undefined method Drupal\\Core\\Extension\\ModuleHandler::getImplementations() - https://www.drupal.org/project/rate/issues/3327528" : "https://git.drupalcode.org/project/rate/-/merge_requests/9.patch"
-        },
-        "drupal/webprofiler" : {
-            "Twig 3.10 breaks ThemeDataCollector\n - https://gitlab.com/drupalspoons/webprofiler/-/issues/100#note_2084439182" : "https://git.drupalcode.org/project/webprofiler/-/merge_requests/21.patch"
-        }
+
     }
   }
 }
