@@ -18,6 +18,11 @@ targetEntityType: node
 bundle: instagram_profile_link
 mode: default
 content:
+  danse_subscribe:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
   field_comments:
     type: comment_default
     label: hidden
@@ -25,7 +30,7 @@ content:
       view_mode: default
       pager_id: 0
     third_party_settings: {  }
-    weight: 2
+    weight: 3
     region: content
   field_instagram_profile_uri:
     type: link

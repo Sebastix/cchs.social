@@ -1,0 +1,17 @@
+uuid: 5cb6d8e9-e198-4e1c-b264-5dde487ec06f
+langcode: en
+status: true
+dependencies:
+  module:
+    - danse
+title: 'Default cron handler'
+id: danse_cron
+weight: 0
+module: danse
+callback: danse_cron
+scheduler:
+  id: simple
+launcher:
+  id: serial
+logger:
+  id: database

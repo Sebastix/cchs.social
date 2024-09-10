@@ -1,0 +1,19 @@
+uuid: 36f9b154-2aed-46db-a210-5e8efb72276d
+langcode: en
+status: true
+dependencies:
+  module:
+    - pf_notifications
+    - serialization
+    - user
+_core:
+  default_config_hash: IeH9hGHQTwdIMSgkJq5X5y-gpwoQ52OtTPeIk55HJtM
+id: pf_notifications_subscription
+plugin_id: pf_notifications_subscription
+granularity: method
+configuration:
+  POST:
+    supported_formats:
+      - json
+    supported_auth:
+      - cookie

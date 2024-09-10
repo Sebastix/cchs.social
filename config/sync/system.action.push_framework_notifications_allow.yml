@@ -1,0 +1,13 @@
+uuid: febe8c4d-9e2f-49b7-a2ac-91c4df58e9ce
+langcode: nl
+status: true
+dependencies:
+  module:
+    - push_framework
+_core:
+  default_config_hash: SJ7Qhw8cnYQiR2zntay323UdLlOx0abkTaNxTCA1GSw
+id: push_framework_notifications_allow
+label: 'Allow all push notifications'
+type: user
+plugin: push_framework_notifications_allow
+configuration: {  }

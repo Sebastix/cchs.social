@@ -7,10 +7,18 @@ _core:
 id: _
 configuration:
   mailer_default_headers: {  }
-  mailer_url_to_absolute: {  }
   mailer_inline_css: {  }
+  reroute_email:
+    addresses:
+      -
+        value: info@sebastix.nl
+        display: ''
+    allowlist: ''
+    show_message: 1
+    add_mail_description: 1
+  email_theme:
+    theme: _active_fallback
+  mailer_url_to_absolute: {  }
   mailer_wrap_and_convert:
     plain: false
     swiftmailer: false
-  email_theme:
-    theme: _active_fallback

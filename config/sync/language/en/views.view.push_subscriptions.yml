@@ -1,0 +1,50 @@
+label: 'Push subscriptions'
+display:
+  default:
+    display_title: Default
+    display_options:
+      title: 'Push subscriptions'
+      fields:
+        name:
+          separator: ', '
+        pf_notifications:
+          label: 'Push subscriptions'
+        user_bulk_form:
+          label: 'Bulk update'
+          action_title: Action
+      pager:
+        options:
+          tags:
+            next: ››
+            previous: ‹‹
+          expose:
+            items_per_page_label: 'Items per page'
+            items_per_page_options_all_label: '- All -'
+            offset_label: Offset
+      exposed_form:
+        options:
+          submit_button: Apply
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sort by'
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      arguments:
+        uid:
+          exception:
+            title: All
+        'null':
+          exception:
+            title: All
+      filters:
+        status:
+          expose:
+            label: Active
+        uid:
+          expose:
+            label: Name
+  page_1:
+    display_title: Page
+    display_options:
+      menu:
+        title: 'Push notifications subscriptions'
+        description: 'A list of subscriptions per user.'

@@ -1,0 +1,22 @@
+_core:
+  default_config_hash: JAbOe031EAXSzCk9eM4rq4GZ_myyggXZcDwtFOWXnrA
+active: 1
+use_default_settings: 1
+danse: 1
+ttl: '2419200'
+urgency: normal
+batch_size: '1000'
+topic: comment
+debug: 1
+enable: 0
+threshold: '5'
+window: '3600'
+ip: null
+skip: 0
+title: '[push-object:op] "[push-object:label]" updates notifications!'
+body: 'Relevant updates on the current post will [push-object:op_push] notifications to your subscription in this browser/device - [push-object:client] 😎'
+icon: 'http://localhost/themes/custom/hix/favicon.ico'
+url: 'http://localhost/'
+subscribe: 0
+token_help: null
+status: null

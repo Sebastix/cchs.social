@@ -43,6 +43,7 @@
     "drupal/nostr_simple_publish": "^1.0@alpha",
     "drupal/pathauto": "^1.11",
     "drupal/pf_email": "^2.3",
+    "drupal/pf_notifications": "^1.0@dev",
     "drupal/push_framework": "^2.3",
     "drupal/pwa": "^2.1@beta",
     "drupal/queue_ui": "^3.1",
