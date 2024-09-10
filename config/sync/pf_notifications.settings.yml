@@ -15,8 +15,8 @@ ip: null
 skip: 0
 title: '[push-object:op] "[push-object:label]" updates notifications!'
 body: 'Relevant updates on the current post will [push-object:op_push] notifications to your subscription in this browser/device - [push-object:client] 😎'
-icon: 'http://localhost/themes/custom/hix/favicon.ico'
-url: 'http://localhost/'
+icon: 'https://cchs.social/themes/custom/hix/favicon.ico'
+url: 'https://cchs.social/'
 subscribe: 0
 token_help: null
 status: null
