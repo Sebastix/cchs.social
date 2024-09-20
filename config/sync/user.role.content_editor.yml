@@ -30,6 +30,7 @@ permissions:
   - 'access content overview'
   - 'access files overview'
   - 'access toolbar'
+  - 'access pwa'
   - 'access user profiles'
   - 'administer comment delete'
   - 'administer comments'

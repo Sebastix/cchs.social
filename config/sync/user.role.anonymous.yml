@@ -15,5 +15,6 @@ is_admin: false
 permissions:
   - 'access comments'
   - 'access content'
+  - 'access pwa'
   - 'access user profiles'
   - 'view media'
