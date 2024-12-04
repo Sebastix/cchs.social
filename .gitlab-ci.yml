@@ -14,6 +14,13 @@ variables:
   SSH_USER_PROD: "cchs"
   SSH_HOST_PROD: "cchs.social"
 
+workflow:
+  rules:
+    # Pipelines do not run when branchname starts with ^aupdt_
+    - if: $CI_COMMIT_BRANCH =~ /^aupdt_/
+      when: never
+    - when: always
+
 stages:
   - build
   - validate
